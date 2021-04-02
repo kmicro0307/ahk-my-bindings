@@ -50,8 +50,8 @@ vk1D Up::
     If (KeyPressedUpTime- KeyPressedStartTime  < 200 )
     { 
       ;IME_SETだとプロパティが設定できないためバグがでる or カスタマイズ性が低い
-     ; IME_SET(0) 
-     Send, {vkF3}
+     IME_SET(0) 
+    ;  Send, {vkF3}
      ; 以下意味有るか不明 おまじない
       ReleaseModifiers()
     ; Send, {Ctrl Up}
