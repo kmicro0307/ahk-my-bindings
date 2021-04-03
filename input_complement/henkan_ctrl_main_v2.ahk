@@ -61,7 +61,7 @@ vk1D Up::
 
 ;以下のように記述すると，追加で書ける
 ; ~vk1D & d::
-;   tooltip, test
-
+;   tooltip, test;
+; 
 ; vk1D & d::
 ;   tooltip, test
