@@ -40,10 +40,9 @@ KeyPressedStartTime = 0
 
    global CtrlPriorkey := A_Priorkey
   ; ToolTip, %CtrlPriorHotkey% 
-  ;  ToolTip, %CtrlPriorkey% 
    KeyPressedUpTime := A_TickCount
    PressedTime := KeyPressedUpTime-KeyPressedStartTime
-    If (KeyPressedUpTime- KeyPressedStartTime  < 300 and A_PriorKey = "LControl")
+    If (KeyPressedUpTime- KeyPressedStartTime  < 300 and A_PriorKey = "RControl")
     { 
       ;ctrlだとプロパティが設定できないためバグがでる or カスタマイズ性が低い
      ; IME_SET(0) 

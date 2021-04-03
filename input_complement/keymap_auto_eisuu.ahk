@@ -64,7 +64,7 @@ vk1C up::                         ;スペース解放時}}
 ;  If (GetKeyState("Space", "P") or GetKeyState("Shift", "P")) {
  If  GetKeyState("Shift") {
     ; Send, {RShift Up}{NumpadEnd}{Enter}{RShift Down}{NumpadHome}{Space}{BackSpace}{RShift Down}
-    SendInput, {RShift Up}{NumpadHome}{Enter}{Up}{Blind}
+    SendInput, {LShift Up}{RShift Up}{NumpadHome}{Enter}{Up}{Blind}
     ; SendInput, {RShift Up}{NumpadEnd}{Enter}{End}+{Home}{Space}{BackSpace}+{Home}{Space}{BackSpace}{RShift Down}
     Return
   }
@@ -72,7 +72,7 @@ vk1C up::                         ;スペース解放時}}
   Return
   ; TODO: shitとの3キー同時押し
 
-;無変換+スペース＝エンター
+;変換+スペース＝エンター
 ~vk1C & Enter::Send,{Blind}{Space}
 ;vkF3::Send,{Blind}{Enter}
 ~vk1C & vkF3::Send,{Blind}{Enter}

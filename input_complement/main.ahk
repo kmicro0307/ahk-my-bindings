@@ -67,7 +67,7 @@ SetWorkingDir, %A_ScriptDir%
 ;VRChat上でキーを無効にする
 #IfWinActive ahk_class UnityWndClass 
 #Include, %A_ScriptDir%\wasd_for_vrc.ahk
-
+ 
 ; タスクビューでのhjklキーバインド 
 #IfWinActive ahk_class MultitaskingViewFrame
 #Include,  %A_ScriptDir%\key_binding_alttab.ahk
