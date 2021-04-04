@@ -189,7 +189,7 @@ Return
 
 $i::
 if (isPressedKeyWithSemicolon()) {
-    Send, {|}
+    Send, )
 } else  {
     Send, {Blind}i
 }
@@ -202,7 +202,7 @@ if (isActiveProcess("Obsidian")  && isSecondKeyAfterCtrlJ() && A_PriorKey = "j")
     CtrlPriorHotkey := "j"
     Send, j
 }else if (isPressedKeyWithSemicolon()) {
-    Send, {blind}(
+    Send, {blind}&
 } else  {
     Send, {Blind}j
 }
@@ -210,7 +210,7 @@ Return
 
 $k::
 if (isPressedKeyWithSemicolon()) {
-    Send, )
+    Send, |
 } else  {
     Send, {Blind}k
 }
@@ -311,7 +311,7 @@ Return
 
 $u::
 if (isPressedKeyWithSemicolon()) {
-    Send, &
+    Send, (
 } else  {
     Send, {Blind}u
 }
@@ -427,4 +427,3 @@ if (isPressedKeyWithSemicolon()) {
     Send, {Blind}3
 }
 Return  
-
