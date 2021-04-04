@@ -118,8 +118,8 @@ Return
   
 
 ;アンダーバー、ドット、ピリオド
-~vk1C & n:: Send,{Blind}{~}
-~vk1C & m:: Send,{Blind}{_}
+~vk1C & n:: Send,{Blind}{_}
+~vk1C & m:: Send,{Blind}{~}
 
 ;vkf3 & h::send, {blind}{left}
 ;vkF3 & j::Send, {Blind}{Down}

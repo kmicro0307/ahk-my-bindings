@@ -226,7 +226,7 @@ Return
 
 $m::
 if (isPressedKeyWithSemicolon()) {
-    Send, _
+    Send, ~
 } else  {
     Send, {Blind}m
 }
@@ -234,7 +234,7 @@ Return
 
 $n::
 if (isPressedKeyWithSemicolon()) {
-    Send, ~
+    Send, _
 } else  {
     Send, {Blind}n
 }
