@@ -33,7 +33,9 @@
 $a::
 if (isPressedKeyWithSemicolon()) {
     Send, =
-} else  {
+} else if (isPressedKeyWithAt()) {
+    Send, 4
+} else {
     Send, {Blind}a
 }
 Return  
@@ -41,7 +43,10 @@ Return
 $b::
 if (isPressedKeyWithSemicolon()) {
     Send, =
-} else  {
+} else if (isPressedKeyWithAt()) {
+   Return 
+}
+else {
     Send, {Blind}b
 }
 Return  
@@ -51,8 +56,10 @@ if (isSecondKeyAfterAltJ()){
     ; ActivateWindowByProcess("chrome")
     ActivateWindowByProcess("vivaldi")
     move_corsor_to_active_centor()
-}else if (isPressedKeyWithSemicolon()) {
+} else if (isPressedKeyWithSemicolon()) {
     Send, [
+} else if (isPressedKeyWithAt()) {
+    Send, 9
 } else  {
     Send, {Blind}c
 }
@@ -73,6 +80,8 @@ Return
 $*d::
 if (isPressedKeyWithSemicolon()) {
     Send, +[
+} else if (isPressedKeyWithAt()) {
+    Send, 6
 } else  {
     Send, {Blind}d
 }
@@ -81,6 +90,8 @@ Return
 $e::
 if (isPressedKeyWithSemicolon()) {
     Send, " 
+} else if (isPressedKeyWithAt()) {
+    Send, 3
 } else  {
     Send, {Blind}e
 }
@@ -245,9 +256,12 @@ if (isPressedKeyWithSemicolon()) {
     Send, {Blind}p
 }
 Return 
+
 $q::
 if (isPressedKeyWithSemicolon()) {
     Send, +1
+} else if (isPressedKeyWithAt()) {
+    Send, 1
 } else  {
     Send, {Blind}q
 }
@@ -256,6 +270,8 @@ Return
 $r::
 if (isPressedKeyWithSemicolon()) {
     Send, '
+} else if (isPressedKeyWithAt()) {
+    Send, 0
 } else  {
     Send, {Blind}r
 }
@@ -264,6 +280,8 @@ Return
 $s::
 if (isPressedKeyWithSemicolon()) {
     Send, -
+} else if (isPressedKeyWithAt()) {
+    Send, 5
 } else  {
     Send, {Blind}s
 }
@@ -327,17 +345,21 @@ Return
 ; #IfWinNotActive ahk_class VRChat 
 
 $w::
-    if (isPressedKeyWithSemicolon()) {
-        Send, ?
-    } else {    
-        ; Send, {Blind}{DownTemp w}
-        Send, {Blind}w
-    }
+if (isPressedKeyWithSemicolon()) {
+    Send, ?
+} else if (isPressedKeyWithAt()) {
+Send, 2
+} else {    
+    ; Send, {Blind}{DownTemp w}
+    Send, {Blind}w
+}
 Return  
 
 $x::
 if (isPressedKeyWithSemicolon()) {
     Send, [
+} else if (isPressedKeyWithAt()) {
+    Send, 8
 } else  {
     Send, {Blind}x
 }
@@ -363,6 +385,8 @@ Return
 $z::
 if (isPressedKeyWithSemicolon()) {
     Send, \
+} else if (isPressedKeyWithAt()) {
+    Send, 7
 } else  {
     Send, {Blind}z
 }

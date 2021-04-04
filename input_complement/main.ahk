@@ -55,7 +55,6 @@ SetWorkingDir, %A_ScriptDir%
 
 ; 変換キーのOne Shot Modifier実装 (ModForText and Henkan)
 #Include, %A_ScriptDir%\keymap_auto_eisuu.ahk
-
 ; -----------------------------------------
 ; 大文字記号文字の自動半角化コード
 ; -----------------------------------------

@@ -2,7 +2,7 @@
 SendMode Input
 SetWorkingDir, %A_ScriptDir%
 
-*@ Up:: 
+@ Up:: 
   If (A_PriorKey = "@")
   {
     KeyPressedUpTime := A_TickCount
