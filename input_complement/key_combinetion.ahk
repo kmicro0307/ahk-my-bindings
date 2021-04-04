@@ -361,7 +361,7 @@ Return
 
 $x::
 if (isPressedKeyWithSemicolon()) {
-    Send, [
+    Send, /
 } else if (isPressedKeyWithAt()) {
     Send, 7
 } else  {
@@ -411,4 +411,20 @@ Return
 
 ; #IfWinActive ahk_class UnityWndClass 
 ; $w::w
+
+$2::
+if (isPressedKeyWithSemicolon()) {
+    Send, {+}
+} else  {
+    Send, {Blind}2
+}
+Return  
+
+$3::
+if (isPressedKeyWithSemicolon()) {
+    Send, {*}
+} else  {
+    Send, {Blind}3
+}
+Return  
 
