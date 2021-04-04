@@ -32,7 +32,6 @@ SetWorkingDir, %A_ScriptDir%
 ; かなローマ字，capslockの置き換え(現状使う予定はない)
 ; *vkF2:: Send, {Enter}
 ; *vkF0:: Send, {BackSpace}
-
 ; -----------------------------------------
 ; One Shot Modifierの実装
 ; -----------------------------------------
@@ -48,7 +47,7 @@ SetWorkingDir, %A_ScriptDir%
 #Include, %A_ScriptDir%\semicolon_main.ahk
 #Include, %A_ScriptDir%\at_main.ahk
 ;vk1C & p:: Reload
-;?
+
 #IfWinNotActive ahk_class UnityWndClass
 ; セミコロン + キー -> 記号キーを入力
 #Include, %A_ScriptDir%\key_combinetion.ahk

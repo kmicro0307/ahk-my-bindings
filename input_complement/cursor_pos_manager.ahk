@@ -29,6 +29,45 @@ global keymap_value_dict := {"~lalt & d":{x:1355, y:653}
 
 ; ~での実装，支配度が高い
 ; Alt Ctrl dなどの実行の際にもこのキーは発火する，条件分岐で除外すれば問題ないと思うが
+
+; firefox -> alt w (Cycle Last Used Tabs)
+; normal -> lalt h
+
+LAlt & l::
+    ; if (GetKeyState("Shift")){
+    ;     if (isPressedKeyWithSemicolon()) {
+    ;     } else if (isActiveProcess("firefox")) {
+    ;         Send, {LAlt}{Shift}
+    ;     } else {    
+    ;         Send, {Blind}{LAlt}{Shift}h
+    ;     }
+    ; }
+    if (isPressedKeyWithSemicolon()) {
+    } else if (isActiveProcess("firefox")) {
+        Send, {Blind}{Alt}2
+    } else {    
+        Send, {Blind}{LAlt}|l
+   }
+Return
+
+LAlt & h::
+    ; if (GetKeyState("Shift")){
+    ;     if (isPressedKeyWithSemicolon()) {
+    ;     } else if (isActiveProcess("firefox")) {
+    ;         Send, {LAlt}{Shift}
+    ;     } else {    
+    ;         Send, {Blind}{LAlt}{Shift}h
+    ;     }
+    ; }
+    if (isPressedKeyWithSemicolon()) {
+    } else if (isActiveProcess("firefox")) {
+        Send, {Blind}{Alt}1
+    } else {    
+        Send, {Blind}{LAlt}|h
+   }
+Return
+
+
 ~LAlt & d::
 ~LAlt & s::
 ~LAlt & f::
