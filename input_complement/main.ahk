@@ -43,12 +43,12 @@ SetWorkingDir, %A_ScriptDir%
 ; CtrlのOne Shot Modifier実装 (Ctrl and Muhenkan)
 #Include, %A_ScriptDir%\ctrlup_ime.ahk
 ; #Include, %A_ScriptDir%\henkan_ctrl_main_v2.ahk
-
 ; TODO セミコロンと変換はOSMと実装のタイプが実際には異なるので区分を明確に分ける
 ; セミコロンのOne Shot Modifier実装 (ModForSymbol and Semicolon)
 #Include, %A_ScriptDir%\semicolon_main.ahk
+#Include, %A_ScriptDir%\at_main.ahk
 ;vk1C & p:: Reload
-; ?
+;?
 #IfWinNotActive ahk_class UnityWndClass
 ; セミコロン + キー -> 記号キーを入力
 #Include, %A_ScriptDir%\key_combinetion.ahk
@@ -67,7 +67,7 @@ SetWorkingDir, %A_ScriptDir%
 ;VRChat上でキーを無効にする
 #IfWinActive ahk_class UnityWndClass 
 #Include, %A_ScriptDir%\wasd_for_vrc.ahk
- 
+
 ; タスクビューでのhjklキーバインド 
 #IfWinActive ahk_class MultitaskingViewFrame
 #Include,  %A_ScriptDir%\key_binding_alttab.ahk

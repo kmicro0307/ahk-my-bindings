@@ -121,9 +121,6 @@ Return
 ~vk1C & n:: Send,{Blind}{~}
 ~vk1C & m:: Send,{Blind}{_}
 
-
-
-
 ;vkf3 & h::send, {blind}{left}
 ;vkF3 & j::Send, {Blind}{Down}
 ;vkF3 & k::Send, {Blind}{Up}

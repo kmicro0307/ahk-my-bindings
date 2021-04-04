@@ -18,7 +18,6 @@ SetWorkingDir, %A_ScriptDir%
 ;e   簡単にセミコロンの実装を作る
 ; 物理的なキー入力を取得できれば，upだけの実装で良い気がする
 
-
 ; $q::
 ; a := GetKeyState(";", "P")
  ; ToolTip,  %a%

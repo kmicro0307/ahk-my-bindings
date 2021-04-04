@@ -22,6 +22,10 @@ isPressedKeyWithSemicolon() {
     return (GetKeyState(";", "P"))
 }
 
+isPressedKeyWithAt() {
+    return (GetKeyState("@", "P"))
+}
+
 isActiveProcess(name) {
     pName := getSettingsValue("ProcessName", name)
     WinGet, ahk_process, ProcessName, A
@@ -33,10 +37,8 @@ isActiveProcess(name) {
     }
 }
 
-
 getSettingsValue(section, key) {
     IniRead value, %A_ScriptDir%\settings\settings.ini, %section%, %key%
-
     return value
 }
 
@@ -138,6 +140,7 @@ GetModifiersUp() {
     }
 	if GetKeyState("vk1D", "P")
 		modifiers = %modifiers%{RCtrl Up}
+		modifiers = %modifiers%{LCtrl Up}
     Return %modifiers%
 }
 
@@ -153,6 +156,6 @@ GetModifiersDown() {
 		modifiers = %modifiers%{RShift Down}
     }
 	if GetKeyState("vk1D", "P")
-		modifiers = %modifiers%{RCtrl Down}
+		modifiers = %modifiers%{LCtrl Down}
     Return %modifiers%
 }
