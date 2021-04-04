@@ -59,7 +59,7 @@ if (isSecondKeyAfterAltJ()){
 } else if (isPressedKeyWithSemicolon()) {
     Send, [
 } else if (isPressedKeyWithAt()) {
-    Send, 9
+    Send, 8
 } else  {
     Send, {Blind}c
 }
@@ -81,7 +81,7 @@ $*d::
 if (isPressedKeyWithSemicolon()) {
     Send, +[
 } else if (isPressedKeyWithAt()) {
-    Send, 6
+    Send, 5
 } else  {
     Send, {Blind}d
 }
@@ -91,7 +91,7 @@ $e::
 if (isPressedKeyWithSemicolon()) {
     Send, " 
 } else if (isPressedKeyWithAt()) {
-    Send, 3
+    Send, 2
 } else  {
     Send, {Blind}e
 }
@@ -118,6 +118,8 @@ if (isSecondKeyAfterAltJ()){
     Send, ^+e
     CtrlPriorHotkey := "^+e"
     Return
+} else if (isPressedKeyWithAt()) {
+    Send, 6
 }else if(isPressedKeyWithSemicolon()) {
     Send, +]
 } else  {
@@ -261,7 +263,7 @@ $q::
 if (isPressedKeyWithSemicolon()) {
     Send, +1
 } else if (isPressedKeyWithAt()) {
-    Send, 1
+    Send, 0
 } else  {
     Send, {Blind}q
 }
@@ -271,7 +273,7 @@ $r::
 if (isPressedKeyWithSemicolon()) {
     Send, '
 } else if (isPressedKeyWithAt()) {
-    Send, 0
+    Send, 3
 } else  {
     Send, {Blind}r
 }
@@ -281,7 +283,7 @@ $s::
 if (isPressedKeyWithSemicolon()) {
     Send, -
 } else if (isPressedKeyWithAt()) {
-    Send, 5
+    Send, 4
 } else  {
     Send, {Blind}s
 }
@@ -335,6 +337,8 @@ $v::
 if (isSecondKeyAfterAltJ()){
     ActivateWindowByProcess("vscode") 
     move_corsor_to_active_centor()
+} else if (isPressedKeyWithAt()) {
+    Send, 9
 }else if (isPressedKeyWithSemicolon()) {
     Send, ]
 } else  {
@@ -348,7 +352,7 @@ $w::
 if (isPressedKeyWithSemicolon()) {
     Send, ?
 } else if (isPressedKeyWithAt()) {
-Send, 2
+Send, 1
 } else {    
     ; Send, {Blind}{DownTemp w}
     Send, {Blind}w
@@ -359,7 +363,7 @@ $x::
 if (isPressedKeyWithSemicolon()) {
     Send, [
 } else if (isPressedKeyWithAt()) {
-    Send, 8
+    Send, 7
 } else  {
     Send, {Blind}x
 }
@@ -386,7 +390,7 @@ $z::
 if (isPressedKeyWithSemicolon()) {
     Send, \
 } else if (isPressedKeyWithAt()) {
-    Send, 7
+    Send, 0
 } else  {
     Send, {Blind}z
 }
