@@ -45,6 +45,8 @@ LAlt & l::
     if (isPressedKeyWithSemicolon()) {
     } else if (isActiveProcess("firefox")) {
         Send, {Blind}{Alt}2
+    } else if (isActiveProcess("tablacus")) {
+        Send, {Blind}{Lalt}{.}
     } else {    
         Send, {Blind}{LAlt}|l
    }
@@ -62,8 +64,10 @@ LAlt & h::
     if (isPressedKeyWithSemicolon()) {
     } else if (isActiveProcess("firefox")) {
         Send, {Blind}{Alt}1
+    } else if (isActiveProcess("tablacus")) {
+        Send, {Blind}{Lalt}{,}
     } else {    
-        Send, {Blind}{LAlt}|h
+        Send, {Blind}{LAlt}h
    }
 Return
 

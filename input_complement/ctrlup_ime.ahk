@@ -1,23 +1,26 @@
-﻿; 【One Shot】 
-; -> IME OFF
+﻿; 【概要】
+; 
+; 【One Shot】 
+; IME OFF
 ; 【Combination】
-; -> Ctrl
+; Ctrl + キー
 ; 【memo】
-; ctrlキーとのバインディングを作成しなければ独立しているコード
+; ① Ctrlキーとのバインディングを作成しなければ独立しているコード
 ; Ctrl が何も押されず離されたらIMEをONにする
-
-; future: 全てのキーが網羅的に定義されている場合，Ctrl up内でprioritykeyが拾える
-;->コードのCtrl j用の部分が消せるため，結合度が下がる
-
-; a prior キーだと 修飾キーが取れない->priorを受け取った時点で文字列を作成すれば良い?
+; ② a prior キーだと 修飾キーが取れない->priorを受け取った時点で文字列を作成すれば良い?
 ; ->それだと結局結合度一緒か
 ;->これは関係ないか
 ;->Ctrl Upが定義されている時点で結合はどうしようもないか
+; 【future】
+; 全てのキー(Ctrl & aなど含む)が網羅的に定義されている場合，Ctrl Up内でprioritykeyが拾える
+;->コードのCtrl j用の部分が消せるようになるため，結合度が下がる
+
 
 #Include, %A_ScriptDir%\Command.ahk
 #InstallKeybdHook
 #UseHook
 KeyPressedStartTime = 0
+
 ; $にするとsandsとの順序問題がでてくる
 ~Ctrl::
   if ( KeyPressedStartTime = 0 ){
@@ -32,19 +35,15 @@ KeyPressedStartTime = 0
 ; ~でCtrlは押していれば送られる.キーバインドによって上書きされない
 
 ~Ctrl Up:: 
-    ;Send, {Ctrl Up}
-    ; ToolTip, c2
-
     ; Ctrl J->キー用の変数，commandの方で使用しないと~Ctrl Upになってしまう
    global CtrlPriorHotkey := A_PriorHotkey
-
    global CtrlPriorkey := A_Priorkey
   ; ToolTip, %CtrlPriorHotkey% 
    KeyPressedUpTime := A_TickCount
    PressedTime := KeyPressedUpTime-KeyPressedStartTime
     If (KeyPressedUpTime- KeyPressedStartTime  < 300 and A_PriorKey = "RControl")
     { 
-      ;ctrlだとプロパティが設定できないためバグがでる or カスタマイズ性が低い
+      ;ctrlだとプロパティが設定できないためバグがでる or カスタマイズ性が低いため，IME_SETは使わない
      ; IME_SET(0) 
      Send, {vkF3}
      ; 以下意味有るか不明 おまじない

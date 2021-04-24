@@ -1,3 +1,4 @@
+﻿;; -*-mode: ahk; coding:utf-8-dos-*-"
 ; キーコンビネーションという名前だが，実装全般をとりあえず書く
 #InstallKeybdHook
 
@@ -65,6 +66,14 @@ if (isSecondKeyAfterAltJ()){
 }
 Return  
 
+$^c::
+if (isPressedKeyWithSemicolon()) {
+    Send, ●
+} else  {
+    Send, {Blind}^c
+}
+Return  
+
 $+c::
 if (isSecondKeyAfterAltJ()){
     ; ActivateWindowByProcess("chrome")
@@ -87,7 +96,19 @@ if (isPressedKeyWithSemicolon()) {
 }
 Return  
 
+; tablacus explorer →  履歴を表示する
 $e::
+if (isActiveProcess("tablacus") && isSecondKeyAfterCtrlJ() && CtrlPriorHotkey = "$^j"){
+    ; ToolTip, %CtrlPriorHotkey%
+    ; ToolTip, %A_PriorKey%
+    ; 以下書かないとctrl j が CtrlPriorHotkeyのままになってキー入力がされない
+    Send, ^r
+    CtrlPriorHotkey := "^r"
+    Return
+} else if (isSecondKeyAfterAltJ()){
+    ActivateWindowByProcess("tablacus") 
+    Return
+}
 if (isPressedKeyWithSemicolon()) {
     Send, " 
 } else if (isPressedKeyWithAt()) {
@@ -105,8 +126,17 @@ if (isPressedKeyWithSemicolon()) {
 }
 Return  
 
+; tablacus explorer → 検索
 $f::
 ; Tooltip, %CtrlPriorHotkey%
+if (isActiveProcess("tablacus") && isSecondKeyAfterCtrlJ() && CtrlPriorHotkey = "$^j"){
+    ; ToolTip, %CtrlPriorHotkey%
+    ; ToolTip, %A_PriorKey%
+    ; 以下書かないとctrl j が CtrlPriorHotkeyのままになってキー入力がされない
+    Send, ^+f
+    CtrlPriorHotkey := "^+f"
+    Return
+}
 if (isSecondKeyAfterAltJ()){
     ; ActivateWindowByProcess("chrome")
     ActivateWindowByProcess("firefox")
@@ -158,7 +188,7 @@ Return
 
 $h::
 if (isPressedKeyWithSemicolon()) {
-    Send, {:}
+    Send, {_}
 } else  {
     Send, {Blind}h
 }
@@ -189,7 +219,7 @@ Return
 
 $i::
 if (isPressedKeyWithSemicolon()) {
-    Send, )
+    Send, |
 } else  {
     Send, {Blind}i
 }
@@ -202,7 +232,7 @@ if (isActiveProcess("Obsidian")  && isSecondKeyAfterCtrlJ() && A_PriorKey = "j")
     CtrlPriorHotkey := "j"
     Send, j
 }else if (isPressedKeyWithSemicolon()) {
-    Send, {blind}&
+    Send, {blind}(
 } else  {
     Send, {Blind}j
 }
@@ -210,7 +240,7 @@ Return
 
 $k::
 if (isPressedKeyWithSemicolon()) {
-    Send, |
+    Send, )
 } else  {
     Send, {Blind}k
 }
@@ -289,6 +319,14 @@ if (isPressedKeyWithSemicolon()) {
 }
 Return  
 
+$^s::
+if (isPressedKeyWithSemicolon()) {
+   Sendinput, {■ }{Space} 
+} else  {
+    Send, {Blind}^s
+}
+Return  
+
 $t::
 if (isSecondKeyAfterAltJ()){
     ActivateWindowByProcess("terminal") 
@@ -311,25 +349,36 @@ Return
 
 $u::
 if (isPressedKeyWithSemicolon()) {
-    Send, (
+    Send, &
 } else  {
     Send, {Blind}u
 }
-Return  
+Return
 
 $^u::
 if (isPressedKeyWithSemicolon()) {
     If (IME_GET() == 1){
         IME_SET(0)  
-        SendSnippet("->")
-        IME_SET(1)  
+        SendSnippet("-> ")
+        ReleaseModifiers()
+        IME_SET(1) 
     } else {
-        SendSnippet("->")
+        SendSnippet("-> ")
         ; 下のやつをつけるとCtrl押しっぱなしが解消される(理由あいまい)
         ReleaseModifiers()
     }
 } else  {
     Send, {Blind}+u
+}
+Return  
+
+$^v::
+if (isPressedKeyWithSemicolon()) {
+    SendInput, {【}{】}
+     Sleep 50
+     send {left}
+} else  {
+    Send, {Blind}^v
 }
 Return  
 
