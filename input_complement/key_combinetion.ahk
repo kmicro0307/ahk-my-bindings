@@ -1,5 +1,4 @@
-﻿;; -*-mode: ahk; coding:utf-8-dos-*-"
-; キーコンビネーションという名前だが，実装全般をとりあえず書く
+﻿; キーコンビネーションという名前だが，実装全般をとりあえず書く
 #InstallKeybdHook
 
 ; #IfWinActive 

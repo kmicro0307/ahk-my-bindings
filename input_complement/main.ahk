@@ -1,6 +1,4 @@
-﻿;; -*-mode: ahk; coding:utf-8-dos-*-"
-;#SingleInstance, Force
-
+﻿;#SingleInstance, Force
 ; memo
 ; upのあとに他のキーバインドが書いてあると動作が意図したとおりにならない
 ; コード修正してとりあえず一つのコードで動くようになった
