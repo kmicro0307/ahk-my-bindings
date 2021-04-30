@@ -179,7 +179,8 @@ if (isActiveProcess("Obsidian") && isSecondKeyAfterCtrlJ() && CtrlPriorHotkey= "
     CtrlPriorHotkey := "^g"
    Return
 }else if (isPressedKeyWithSemicolon()) {
-    Send, {asc 0037}
+    ; Send, {asc 0037}
+    Send, `%
 } else  {
     Send, {Blind}g
 }
