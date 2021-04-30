@@ -73,14 +73,14 @@ LAlt & h::
 Return
 
 
-~LAlt & d::
+~LAlt & a::
 ~LAlt & s::
+~LAlt & d::
 ~LAlt & f::
-~LAlt & v::
+~LAlt & z::
 ~LAlt & x::
 ~LAlt & c::
-~LAlt & a::
-~LAlt & z::
+~LAlt & v::
 {
     ; ToolTip, %A_PriorHotKey% 
     sleep, 10

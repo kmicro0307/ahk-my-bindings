@@ -1,9 +1,11 @@
+;--------------------------------------------------------
+; 【概要】 
 ; セミコロンを修飾キーとして扱う
 ; 【One Shot】 
 ; -> セミコロン
 ; 【Combination】 
 ; -> 記号キー入力
-
+;----------------------------------
 #SingleInstance, Force
 SendMode Input
 SetWorkingDir, %A_ScriptDir%
