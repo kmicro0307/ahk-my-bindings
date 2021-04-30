@@ -1,4 +1,4 @@
-;coordmode, mouse, screen
+﻿;coordmode, mouse, screen
 ;maxhotkeysperinterval 1 sd
 ;thread, interrupt, -1
 ; create hot keyはキーバインドより先に最初に読み込まないと実行されない
@@ -16,6 +16,7 @@ global keymap_move_len := {"!h":{x:100, y:0, f:"w"}
     ,"!+k":{x:0, y:-100,f:"w"}
     ,"!+l":{x:-100, y:0,f:"x"}
     ,"vk1d & z":"l"}
+
 global keymap_value_dict := {"~lalt & d":{x:1355, y:653}
     ,"~lalt & s":{x:355, y:653}
     ,"~lalt & f":{x:2444, y:588}
@@ -23,7 +24,8 @@ global keymap_value_dict := {"~lalt & d":{x:1355, y:653}
     ,"~lalt & x":{x:389, y:1530}
     ,"~lalt & c":{x:1530, y:1500}
     ,"~lalt & a":{x:-540, y:394}
-    ,"~lalt & z":{x:-540, y:1254}}
+    ,"~lalt & z":{x:-540, y:1254}
+    ,"~lalt & g":{x:3200, y:500}}
 ; for hotkey, value in keymap_value_dict 
 ;     create_hotkey(hotkey,value)
 
@@ -77,6 +79,7 @@ Return
 ~LAlt & s::
 ~LAlt & d::
 ~LAlt & f::
+~LAlt & g::
 ~LAlt & z::
 ~LAlt & x::
 ~LAlt & c::
@@ -101,7 +104,24 @@ Return
     Return
 }
 
-
+; ~LAlt & a::
+;     sleep, 10
+;     if (GetKeyState("Shift")) 
+;     {
+;             windowpositionmovefunc() 
+;             move_corsor_to_active_centor()
+;     }
+;     else
+;     {
+;         ; windowのサイズの取得
+;         a_hotkey := A_ThisHotkey 
+;         x := getSettingsValue([QuickMoveCursor, LeftUpLocX
+;         y := keymap_value_dict[a_hotkey]["y"]
+;         activatefunc(x, y)
+;         ; move_corsor_to_active_centor()
+;     }
+;     Return
+; }
 
 
 ; MoveCursorToXY(X, Y)
