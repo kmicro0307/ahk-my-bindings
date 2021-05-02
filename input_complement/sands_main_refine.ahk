@@ -21,7 +21,7 @@ SpacePressedStartTime = 0
 *Space::
   ; 以前はSendだったが、Sendだと`+キー`が発火しなかったので、 Sendに
   Send,  {LShift Down}
-  if ( KeyPressedStartTime = 0 ){
+  if (SpacePressedStartTime = 0 ){
     SpacePressedStartTime := A_TickCount
 }
 Return
@@ -29,11 +29,13 @@ Return
 *Space Up:: 
   ;ToolTip, %A_PriorKey% 
   SendInput {LShift Up}
+  KeyPressedUpTime := A_TickCount
+  PressedTime := KeyPressedUpTime-KeyPressedStartTime
+  ; tooltip, %PressedTime%
   ;SpaceをPriorKeyで入力判定，Alt SpaceやCtrl Spaceの実装を考えたとき，Spaceは修飾キーより後に入力されるため，これで問題ない 
-  If ((A_TickCount - SandS_SpaceDownTime) < 200 and A_PriorKey = "Space")
+  If (KeyPressedUpTime - SpacePressedStartTime < 200 and A_PriorKey = "Space")
   {
-    KeyPressedUpTime := A_TickCount
-    PressedTime := KeyPressedUpTime-KeyPressedStartTim
     SendInput {Blind}{Space}
   }
+  SpacePressedStartTime = 0
 Return
