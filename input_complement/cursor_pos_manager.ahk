@@ -100,7 +100,7 @@ Return
         hwnd := getWindowHandlerAtPosition(x, y)
         wingettitle, title, ahk_id %hwnd%
         winactivate, ahk_id %hwnd%
-
+        FlashWindow()
         ; activatefunc(x, y)
         ; move_corsor_to_active_centor()
     }

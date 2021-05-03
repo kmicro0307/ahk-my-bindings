@@ -98,6 +98,15 @@ activatefunc(x, y)
         ; flashwindow()
 }
 
+;【概要】アクティブウィンドウをフラッシュします
+;【引数】なし
+;【戻値】なし
+FlashWindow() {
+    WinSet, Transparent, 128, A
+    Sleep, 50
+    WinSet, Transparent, OFF, A
+}
+
 ;【概要】指定位置のウィンドウハンドラを取得する
 ;【引数】px: x座標, py: y座標
 ;【戻値】Window handler
