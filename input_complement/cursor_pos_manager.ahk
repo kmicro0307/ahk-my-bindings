@@ -323,8 +323,8 @@ LAlt Up::
     { 
         Send {Alt Down}{Tab}{Alt Up}
         ; ; ToolTip, %A_TimeSincePriorHotkey% 
-        Sleep, 200
-        move_corsor_to_active_centor()
+        ; Sleep, 200
+        ; move_corsor_to_active_centor()
     }
     KeyPressedStartTime := 0
     ; if (A_TimeSincePriorHotkey < 300 and A_PriorKey = "LAlt"){
