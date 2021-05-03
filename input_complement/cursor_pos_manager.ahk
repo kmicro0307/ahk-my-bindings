@@ -94,11 +94,14 @@ Return
     }
     else
     {
-        ; windowのサイズの取得
         a_hotkey := A_ThisHotkey 
         x := keymap_value_dict[a_hotkey]["x"]
         y := keymap_value_dict[a_hotkey]["y"]
-        activatefunc(x, y)
+        hwnd := getWindowHandlerAtPosition(x, y)
+        wingettitle, title, ahk_id %hwnd%
+        winactivate, ahk_id %hwnd%
+
+        ; activatefunc(x, y)
         ; move_corsor_to_active_centor()
     }
     Return

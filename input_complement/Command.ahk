@@ -98,6 +98,19 @@ activatefunc(x, y)
         ; flashwindow()
 }
 
+;【概要】指定位置のウィンドウハンドラを取得する
+;【引数】px: x座標, py: y座標
+;【戻値】Window handler
+getWindowHandlerAtPosition(px, py) {
+    VarSetCapacity(POINT, 8, 0x00)
+    NumPut(px, POINT, 0x00, "int")
+    NumPut(py, POINT, 0x04, "int")
+    HWND := DllCall("WindowFromPoint", "Int64", NumGet(POINT, 0x00, "int64"))
+    ANCESTOR_HWND := DllCall("GetAncestor", "UInt", HWND, "UInt", GA_ROOT := 2)
+    WinExist("ahk_id" . ANCESTOR_HWND)
+    return %ANCESTOR_HWND%
+}
+
 ; キー押しっぱなしを解除する
 ; これを入れると，変換の実行時間がのびて，PriorKeyに影響が出る
 ; -> CtrlPriorkeyの出力が j -> $^jになるなど(ちゃんと確認してはいないが)
