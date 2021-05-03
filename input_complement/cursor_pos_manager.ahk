@@ -97,11 +97,11 @@ Return
         a_hotkey := A_ThisHotkey 
         x := keymap_value_dict[a_hotkey]["x"]
         y := keymap_value_dict[a_hotkey]["y"]
-        hwnd := getWindowHandlerAtPosition(x, y)
-        wingettitle, title, ahk_id %hwnd%
-        winactivate, ahk_id %hwnd%
-        FlashWindow()
-        ; activatefunc(x, y)
+        ; hwnd := getWindowHandlerAtPosition(x, y)
+        ; wingettitle, title, ahk_id %hwnd%
+        ; winactivate, ahk_id %hwnd%
+        ; FlashWindow()
+        activatefunc(x, y)
         ; move_corsor_to_active_centor()
     }
     Return
@@ -323,8 +323,10 @@ LAlt Up::
     { 
         Send {Alt Down}{Tab}{Alt Up}
         ; ; ToolTip, %A_TimeSincePriorHotkey% 
-        ; Sleep, 200
-        ; move_corsor_to_active_centor()
+        ; Sleep, 50
+        ; FlashWindow()
+        Sleep, 200
+        move_corsor_to_active_centor()
     }
     KeyPressedStartTime := 0
     ; if (A_TimeSincePriorHotkey < 300 and A_PriorKey = "LAlt"){

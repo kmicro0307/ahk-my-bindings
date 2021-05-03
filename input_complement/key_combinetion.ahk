@@ -55,7 +55,7 @@ $c::
 if (isSecondKeyAfterAltJ()){
     ; ActivateWindowByProcess("chrome")
     ActivateWindowByProcess("vivaldi")
-    ; move_corsor_to_active_centor()
+    move_corsor_to_active_centor()
 } else if (isPressedKeyWithSemicolon()) {
     Send, [
 } else if (isPressedKeyWithAt()) {
@@ -77,7 +77,7 @@ $+c::
 if (isSecondKeyAfterAltJ()){
     ; ActivateWindowByProcess("chrome")
     ActivateWindowByProcess("chrome")
-    ; move_corsor_to_active_centor()
+    move_corsor_to_active_centor()
 }else if (isPressedKeyWithSemicolon()) {
     Send, =
 } else  {
@@ -139,7 +139,7 @@ if (isActiveProcess("tablacus") && isSecondKeyAfterCtrlJ() && CtrlPriorHotkey = 
 if (isSecondKeyAfterAltJ()){
     ; ActivateWindowByProcess("chrome")
     ActivateWindowByProcess("firefox")
-    ; move_corsor_to_active_centor()
+    move_corsor_to_active_centor()
     } else if (isActiveProcess("Obsidian") && isSecondKeyAfterCtrlJ() && CtrlPriorHotkey = "$^j"){
     ; ToolTip, %CtrlPriorHotkey%
     ; ToolTip, %A_PriorKey%
@@ -273,7 +273,7 @@ Return
 $o::
 if (isSecondKeyAfterAltJ()){
     ActivateWindowByProcess("Obsidian")
-    ; move_corsor_to_active_centor()
+    move_corsor_to_active_centor()
 }else if (isPressedKeyWithSemicolon()) {
     Send, {^}
 } else  {
@@ -330,7 +330,7 @@ Return
 $t::
 if (isSecondKeyAfterAltJ()){
     ActivateWindowByProcess("terminal") 
-    ; move_corsor_to_active_centor()
+    move_corsor_to_active_centor()
 }else if (isPressedKeyWithSemicolon()) {
     Send, $
 } else  {
@@ -385,7 +385,7 @@ Return
 $v::
 if (isSecondKeyAfterAltJ()){
     ActivateWindowByProcess("vscode") 
-    ; move_corsor_to_active_centor()
+    move_corsor_to_active_centor()
 } else if (isPressedKeyWithAt()) {
     Send, 9
 }else if (isPressedKeyWithSemicolon()) {
