@@ -1,10 +1,12 @@
 #SingleInstance, Force
 SendMode Input
 SetWorkingDir, %A_ScriptDir%
-
 F1::
-    test := IME_GET()
-    tooltip, %test% 
+    ; test := IME_GET()
+    test := IME_GetConvMode()
+    ; test := IME_GetConverting()
+    tooltip, %test%
+    return
     ; if (IME_GET() = 1){
     ;     ; カタカナモードにする
     ; }
@@ -39,4 +41,4 @@ F1::
 F2::
     test := IME_GetConvMode()
     tooltip, %test% 
-    IME_SetConvMode(27)
+    IME_SetConvMode(25)
