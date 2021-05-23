@@ -25,7 +25,6 @@ KeyPressedStartTime = 0
 ~Ctrl::
   if ( KeyPressedStartTime = 0 ){
   KeyPressedStartTime := A_TickCount
-
   ; 不具合あったらDownTempも検討する
   ;~で定義されているため，sendは要らない
   ;Send {Blind}{Ctrl Down}
@@ -41,7 +40,7 @@ KeyPressedStartTime = 0
   ; ToolTip, %CtrlPriorHotkey% 
    KeyPressedUpTime := A_TickCount
    PressedTime := KeyPressedUpTime-KeyPressedStartTime
-    If (KeyPressedUpTime- KeyPressedStartTime  < 300 and A_PriorKey = "RControl")
+    If (KeyPressedUpTime- KeyPressedStartTime  < 300 and A_PriorKey = "LControl")
     { 
       ;ctrlだとプロパティが設定できないためバグがでる or カスタマイズ性が低いため，IME_SETは使わない
      ; IME_SET(0) 
