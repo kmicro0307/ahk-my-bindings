@@ -194,7 +194,7 @@ if (isPressedKeyWithSemicolon()) {
 }
 Return  
 
-; $+h::
+; $+j
 ;     ; tooltip, test
 ;     if (isPressedKeyWithSemicolon()) {
 ;     } else if (isActiveProcess("firefox")) {
