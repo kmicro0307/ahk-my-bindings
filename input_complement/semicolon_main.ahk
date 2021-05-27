@@ -25,27 +25,28 @@ SetWorkingDir, %A_ScriptDir%
  ; ToolTip,  %a%
 ; Return 
 
-SemicoPressedStartTime = 0
+SemicolonPressedStartTime = 0
 *;::
     if ( KeyPressedStartTime = 0 ){
-        SpacePressedStartTime := A_TickCount
+        SmicolonPressedStartTime := A_TickCount
     }
 Return 
 
 *; Up:: 
   ; ToolTip, %A_PriorKey% 
   ; ToolTip, %A_PriorHotKey% 
-  global SemicolonPriorHotkey := A_PriorHotkey
-  global SemicolonPriorkey := A_Priorkey
-  SpacePressedStartTime = 0
   ; if (A_PriorHotkey = "*;"){
   ;   return
   ; }
   ; if isSecondColon(){
   ;   return
   
-  If ((A_TickCount - SandS_SpaceDownTime) < 200 and A_PriorHotKey = "*; Up")
+  global SemicolonPriorHotkey := A_PriorHotkey
+  global SemicolonPriorkey := A_Priorkey
+  PressedTime := KeyPressedUpTime-KeyPressedStartTime
+  If ((A_TickCount - PressedTime) < 200 and A_PriorHotKey = "*; Up")
   {
+    ; SpacePressedStartTime = 0
     SendInput {Blind}{SC028}{Space}
     return
   }

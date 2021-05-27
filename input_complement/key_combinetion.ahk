@@ -33,6 +33,7 @@
 $a::
 if isSecondColon(){
     ; tooltip, test
+    SemicolonPriorHotkey := "a"
 }
 if (isPressedKeyWithSemicolon()) {
     Send, =
@@ -60,6 +61,7 @@ if (isSecondColon()){
     ; ActivateWindowByProcess("chrome")
     ActivateWindowByProcess("chrome")
     move_corsor_to_active_centor()
+    SemicolonPriorHotkey := "c"
 } else if (isPressedKeyWithSemicolon()) {
     Send, [
 } else if (isPressedKeyWithAt()) {
@@ -83,6 +85,7 @@ if (isSecondColon()){
     ; ActivateWindowByProcess("chrome")
     ActivateWindowByProcess("chrome")
     move_corsor_to_active_centor()
+    SemicolonPriorHotkey := "+c"
 }else if (isPressedKeyWithSemicolon()) {
     Send, =
 } else  {
@@ -112,6 +115,7 @@ if (isActiveProcess("tablacus") && isSecondKeyAfterCtrlJ() && CtrlPriorHotkey = 
 ;} else if (isSecondKeyAfterAltJ()){
 } else if (isSecondColon()){
     ActivateWindowByProcess("tablacus") 
+    SemicolonPriorHotkey := "e"
     Return
 }
 if (isPressedKeyWithSemicolon()) {
@@ -284,6 +288,7 @@ $o::
 if (isSecondColon()){
     ActivateWindowByProcess("Obsidian")
     move_corsor_to_active_centor()
+    SemicolonPriorHotkey := "o"
 }else if (isPressedKeyWithSemicolon()) {
     Send, {^}
 } else  {
@@ -342,6 +347,7 @@ $t::
 if (isSecondColon()){
     ActivateWindowByProcess("terminal") 
     move_corsor_to_active_centor()
+    SemicolonPriorHotkey := "t"
 }else if (isPressedKeyWithSemicolon()) {
     Send, $
 } else  {
@@ -398,6 +404,7 @@ $v::
 if (isSecondColon()){
     ActivateWindowByProcess("vscode") 
     move_corsor_to_active_centor()
+    SemicolonPriorHotkey := "v"
 } else if (isPressedKeyWithAt()) {
     Send, 9
 }else if (isPressedKeyWithSemicolon()) {
@@ -477,6 +484,7 @@ $2::
 if (isSecondColon()){
     ActivateWindowByProcess("Obsidian")
     move_corsor_to_active_centor()
+    SemicolonPriorHotkey := "2"
     return
 }
 if (isPressedKeyWithSemicolon()) {
