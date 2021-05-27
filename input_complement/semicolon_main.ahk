@@ -25,14 +25,18 @@ SetWorkingDir, %A_ScriptDir%
  ; ToolTip,  %a%
 ; Return 
 
-; *; ::
-;   if ( KeyPressedStartTime = 0 ){
-;     SpacePressedStartTime := A_TickCount
-; }
-; Return 
+*;::
+  if ( KeyPressedStartTime = 0 ){
+    SpacePressedStartTime := A_TickCount
+}
+Return 
 
 *; Up:: 
-;   ToolTip, %A_PriorKey% 
+  ; ToolTip, %A_PriorKey% 
+  ; ToolTip, %A_PriorHotKey% 
+  if isSecondColon(){
+    return
+  }
   If ((A_TickCount - SandS_SpaceDownTime) < 200 and A_PriorKey = ";")
   {
     KeyPressedUpTime := A_TickCount

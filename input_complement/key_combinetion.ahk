@@ -31,6 +31,9 @@
 ; z
 
 $a::
+if isSecondColon(){
+    ; tooltip, test
+}
 if (isPressedKeyWithSemicolon()) {
     Send, =
 } else if (isPressedKeyWithAt()) {

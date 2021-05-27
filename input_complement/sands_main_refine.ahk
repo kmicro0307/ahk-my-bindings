@@ -40,6 +40,7 @@ Return
   PressedTime := KeyPressedUpTime-KeyPressedStartTime
   ; tooltip, %PressedTime%
   ;SpaceをPriorKeyで入力判定，Alt SpaceやCtrl Spaceの実装を考えたとき，Spaceは修飾キーより後に入力されるため，これで問題ない 
+  ; tooltip, %A_PriorKey%
   If (KeyPressedUpTime - SpacePressedStartTime < 200 and A_PriorKey = "Space")
   {
     SendInput {Blind}{Space}

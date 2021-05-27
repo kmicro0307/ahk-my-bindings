@@ -11,6 +11,15 @@ isSecondKeyAfterAltJ() {
     return Flag 
 }
 
+isSecondColon() {
+    ; ToolTip, %ab% 
+    ; Ctrl を同一コードで書くとpriorがupになるため，globalから取ってきている
+    ; tooltip, %A_PriorHotkey%
+    return (A_PriorHotkey = "*;")
+    ; tooltip,
+    ; return (A_PriorHotKey = "$^j")
+}
+
 isSecondKeyAfterCtrlJ() {
     ; ToolTip, %ab% 
     ; Ctrl を同一コードで書くとpriorがupになるため，globalから取ってきている

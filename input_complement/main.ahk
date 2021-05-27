@@ -10,8 +10,8 @@ coordmode, mouse, screen
 SetWorkingDir, %A_ScriptDir%
 ; SetMouseDelay, 1
 ; #HotkeyModifierTimeout 100
-;
-; -----------------------------------------
+
+;; -----------------------------------------
 ; 汎用コード
 ; -----------------------------------------
 #Include, %A_ScriptDir%\Command.ahk
