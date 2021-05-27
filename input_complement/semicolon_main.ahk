@@ -35,6 +35,7 @@ Return
 *; Up:: 
   ; ToolTip, %A_PriorKey% 
   ; ToolTip, %A_PriorHotKey% 
+  SpacePressedStartTime = 0
   if (A_PriorHotkey = "*;"){
     return
   }
