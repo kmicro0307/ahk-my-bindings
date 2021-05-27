@@ -254,9 +254,9 @@ Return
 Send, {Blind}{Left}
 Return
 
-isSecondKey(){
-    return (A_PriorHotKey = "$")
-}
+; isSecondKey(){
+;     return (A_PriorHotKey = "$")
+; }
 
 ;~Alt::
 ;p = %A_PriorHotkey%

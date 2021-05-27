@@ -3,7 +3,6 @@
 ; upのあとに他のキーバインドが書いてあると動作が意図したとおりにならない
 ; コード修正してとりあえず一つのコードで動くようになった
 ;#Include, %A_ScriptDir%\henkan_ctrl_main.ahk
-
 #InstallKeybdHook
 #UseHook
 coordmode, mouse, screen
@@ -11,7 +10,7 @@ coordmode, mouse, screen
 SetWorkingDir, %A_ScriptDir%
 ; SetMouseDelay, 1
 ; #HotkeyModifierTimeout 100
-
+;
 ; -----------------------------------------
 ; 汎用コード
 ; -----------------------------------------

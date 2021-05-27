@@ -40,3 +40,4 @@ SetWorkingDir, %A_ScriptDir%
     SendInput {Blind};
   }
 Return
+
