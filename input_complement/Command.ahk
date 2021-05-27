@@ -15,7 +15,7 @@ isSecondColon() {
     ; ToolTip, %ab% 
     ; Ctrl を同一コードで書くとpriorがupになるため，globalから取ってきている
     ; tooltip, %A_PriorHotkey%
-    return (A_PriorHotkey = "*; Up")
+    return (SemicolonPriorHotkey = "*; Up")
     ; tooltip,
     ; return (A_PriorHotKey = "$^j")
 }
@@ -86,7 +86,6 @@ optionfunc(){
                 send, {alt up}{tab}
                 }
         }
-
 
 movecursorfunc()
 {

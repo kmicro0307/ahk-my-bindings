@@ -91,13 +91,13 @@ if (isSecondColon()){
 Return  
 
 $*d::
-if (isPressedKeyWithSemicolon()) {
-    Send, +[
-} else if (isPressedKeyWithAt()) {
-    Send, 5
-} else  {
-    Send, {Blind}d
-}
+    if (isPressedKeyWithSemicolon()) {
+        Send, +[
+    } else if (isPressedKeyWithAt()) {
+        Send, 5
+    } else  {
+        Send, {Blind}d
+    }
 Return  
 
 ; tablacus explorer →  履歴を表示する
@@ -197,7 +197,7 @@ Return
 
 $h::
 if (isPressedKeyWithSemicolon()) {
-    Send, {SC027}
+    Send, {SC027}{Space}
 } else  {
     Send, {Blind}h
 }

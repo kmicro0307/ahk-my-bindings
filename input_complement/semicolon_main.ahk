@@ -35,15 +35,18 @@ Return
 *; Up:: 
   ; ToolTip, %A_PriorKey% 
   ; ToolTip, %A_PriorHotKey% 
+  global SemicolonPriorHotkey := A_PriorHotkey
+  global SemicolonPriorkey := A_Priorkey
   SpacePressedStartTime = 0
-  if (A_PriorHotkey = "*;"){
-    return
-  }
-  if isSecondColon(){
-    return
-  }
-  If ((A_TickCount - SandS_SpaceDownTime) < 200 and A_PriorKey = ";")
+  ; if (A_PriorHotkey = "*;"){
+  ;   return
+  ; }
+  ; if isSecondColon(){
+  ;   return
+  
+  If ((A_TickCount - SandS_SpaceDownTime) < 200 and A_PriorHotKey = "*; Up")
   {
-    SendInput {Blind};
+    SendInput {Blind}{SC028}{Space}
+    return
   }
 Return
