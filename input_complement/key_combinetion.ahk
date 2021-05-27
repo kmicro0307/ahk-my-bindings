@@ -55,9 +55,10 @@ else {
 Return  
 
 $c::
-if (isSecondKeyAfterAltJ()){
+;if (isSecondKeyAfterAltJ()){
+if (isSecondColon()){
     ; ActivateWindowByProcess("chrome")
-    ActivateWindowByProcess("vivaldi")
+    ActivateWindowByProcess("chrome")
     move_corsor_to_active_centor()
 } else if (isPressedKeyWithSemicolon()) {
     Send, [
@@ -74,10 +75,11 @@ if (isPressedKeyWithSemicolon()) {
 } else  {
     Send, {Blind}^c
 }
-Return  
+Return 
 
 $+c::
-if (isSecondKeyAfterAltJ()){
+;if (isSecondKeyAfterAltJ()){
+if (isSecondColon()){
     ; ActivateWindowByProcess("chrome")
     ActivateWindowByProcess("chrome")
     move_corsor_to_active_centor()
@@ -107,7 +109,8 @@ if (isActiveProcess("tablacus") && isSecondKeyAfterCtrlJ() && CtrlPriorHotkey = 
     Send, ^r
     CtrlPriorHotkey := "^r"
     Return
-} else if (isSecondKeyAfterAltJ()){
+;} else if (isSecondKeyAfterAltJ()){
+} else if (isSecondColon()){
     ActivateWindowByProcess("tablacus") 
     Return
 }
@@ -139,7 +142,10 @@ if (isActiveProcess("tablacus") && isSecondKeyAfterCtrlJ() && CtrlPriorHotkey = 
     CtrlPriorHotkey := "^+f"
     Return
 }
-if (isSecondKeyAfterAltJ()){
+;if (isSecondKeyAfterAltJ()){
+; tooltip,%A_PriorHotkey%
+if (isSecondColon()){
+    ; tooltip,test
     ; ActivateWindowByProcess("chrome")
     ActivateWindowByProcess("firefox")
     move_corsor_to_active_centor()
@@ -191,7 +197,7 @@ Return
 
 $h::
 if (isPressedKeyWithSemicolon()) {
-    Send, {_}
+    Send, {SC027}
 } else  {
     Send, {Blind}h
 }
@@ -274,7 +280,8 @@ if (isPressedKeyWithSemicolon()) {
 Return  
 
 $o::
-if (isSecondKeyAfterAltJ()){
+;if (isSecondKeyAfterAltJ()){
+if (isSecondColon()){
     ActivateWindowByProcess("Obsidian")
     move_corsor_to_active_centor()
 }else if (isPressedKeyWithSemicolon()) {
@@ -331,7 +338,8 @@ if (isPressedKeyWithSemicolon()) {
 Return  
 
 $t::
-if (isSecondKeyAfterAltJ()){
+;if (isSecondKeyAfterAltJ()){
+if (isSecondColon()){
     ActivateWindowByProcess("terminal") 
     move_corsor_to_active_centor()
 }else if (isPressedKeyWithSemicolon()) {
@@ -386,7 +394,8 @@ if (isPressedKeyWithSemicolon()) {
 Return  
 
 $v::
-if (isSecondKeyAfterAltJ()){
+;if (isSecondKeyAfterAltJ()){
+if (isSecondColon()){
     ActivateWindowByProcess("vscode") 
     move_corsor_to_active_centor()
 } else if (isPressedKeyWithAt()) {
@@ -465,6 +474,11 @@ Return
 ; $w::w
 
 $2::
+if (isSecondColon()){
+    ActivateWindowByProcess("Obsidian")
+    move_corsor_to_active_centor()
+    return
+}
 if (isPressedKeyWithSemicolon()) {
     Send, {+}
 } else  {

@@ -15,7 +15,6 @@ SetWorkingDir, %A_ScriptDir%
 ; 汎用コード
 ; -----------------------------------------
 #Include, %A_ScriptDir%\Command.ahk
-
 ; -----------------------------------------
 ; ウィンドウ，カーソル移動のバインディング
 ; -----------------------------------------
@@ -23,7 +22,6 @@ SetWorkingDir, %A_ScriptDir%
 #Include, %A_ScriptDir%\cursor_pos_manager.ahk
 ; ■ ウィンドウの位置移動をする
 #include, %A_ScriptDir%\move_active_window.ahk 
-
 ; -----------------------------------------
 ; キーの単純な置き換え
 ; -----------------------------------------
@@ -41,7 +39,6 @@ SetWorkingDir, %A_ScriptDir%
 ; ■ CtrlのOne Shot Modifier実装 (Ctrl and Muhenkan)
 #Include, %A_ScriptDir%\ctrlup_ime.ahk
 ; #Include, %A_ScriptDir%\henkan_ctrl_main_v2.ahk
-
 ; TODO セミコロンと変換はOSMと実装のタイプが実際には異なるので区分を明確に分ける
 ; ■ セミコロンのOne Shot Modifier実装 (ModForSymbol and Semicolon)
 #Include, %A_ScriptDir%\semicolon_main.ahk
@@ -84,4 +81,3 @@ return
 ; -----------------------------------------
 ~vk1C & p:: Reload
 return
-

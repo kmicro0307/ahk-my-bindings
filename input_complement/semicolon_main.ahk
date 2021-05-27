@@ -25,23 +25,24 @@ SetWorkingDir, %A_ScriptDir%
  ; ToolTip,  %a%
 ; Return 
 
+SemicoPressedStartTime = 0
 *;::
-  if ( KeyPressedStartTime = 0 ){
-    SpacePressedStartTime := A_TickCount
-}
+    if ( KeyPressedStartTime = 0 ){
+        SpacePressedStartTime := A_TickCount
+    }
 Return 
 
 *; Up:: 
   ; ToolTip, %A_PriorKey% 
   ; ToolTip, %A_PriorHotKey% 
+  if (A_PriorHotkey = "*;"){
+    return
+  }
   if isSecondColon(){
     return
   }
   If ((A_TickCount - SandS_SpaceDownTime) < 200 and A_PriorKey = ";")
   {
-    KeyPressedUpTime := A_TickCount
-    PressedTime := KeyPressedUpTime-KeyPressedStartTim
     SendInput {Blind};
   }
 Return
-

@@ -40,5 +40,5 @@ F1::
 
 F2::
     test := IME_GetConvMode()
-    tooltip, %test% 
+    ; tooltip, %test% 
     IME_SetConvMode(25)
