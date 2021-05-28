@@ -30,6 +30,7 @@ global SemicolonPressedStartTime = 0
     if ( SemicolonPressedStartTime = 0 ){
       SemicolonPressedStartTime := A_TickCount
     }
+    global SemicolonPriorHotkey := "*;"
 Return 
 
 *; Up:: 
@@ -41,8 +42,8 @@ Return
   ; if isSecondColon(){
   ;   return
   
-  global SemicolonPriorHotkey := A_PriorHotkey
-  global SemicolonPriorkey := A_Priorkey
+  global SemicolonPriorHotkey := "*; Up"
+  ; global SemicolonPriorkey := A_Priorkey
   ; If ((A_TickCount - SemicolonPressedStartTime) < 2000 and A_PriorHotKey = "*; Up")
   ; {
   ;   ; SpacePressedStartTime = 0
