@@ -28,7 +28,7 @@ SetWorkingDir, %A_ScriptDir%
 global SemicolonPressedStartTime = 0
 *;::
     if ( SemicolonPressedStartTime = 0 ){
-        SemicolonPressedStartTime := A_TickCount
+      SemicolonPressedStartTime := A_TickCount
     }
 Return 
 

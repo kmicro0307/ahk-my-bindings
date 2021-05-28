@@ -14,7 +14,7 @@ isSecondKeyAfterAltJ() {
 isSecondColon() {
     ; ToolTip, %ab% 
     ; Ctrl を同一コードで書くとpriorがupになるため，globalから取ってきている
-    tooltip, %A_PriorHotkey%
+    ; tooltip, %A_PriorHotkey%
     flag := SemicolonPriorHotkey = "*;" and A_TickCount - SemicolonPressedStartTime < 400
     SemicolonPressedStartTime := 0
     return flag
