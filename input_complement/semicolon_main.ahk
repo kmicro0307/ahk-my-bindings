@@ -25,10 +25,10 @@ SetWorkingDir, %A_ScriptDir%
  ; ToolTip,  %a%
 ; Return 
 
-SemicolonPressedStartTime = 0
+global SemicolonPressedStartTime = 0
 *;::
-    if ( KeyPressedStartTime = 0 ){
-        SmicolonPressedStartTime := A_TickCount
+    if ( SemicolonPressedStartTime = 0 ){
+        SemicolonPressedStartTime := A_TickCount
     }
 Return 
 
@@ -43,11 +43,10 @@ Return
   
   global SemicolonPriorHotkey := A_PriorHotkey
   global SemicolonPriorkey := A_Priorkey
-  PressedTime := KeyPressedUpTime-KeyPressedStartTime
-  If ((A_TickCount - PressedTime) < 200 and A_PriorHotKey = "*; Up")
-  {
-    ; SpacePressedStartTime = 0
-    SendInput {Blind}{SC028}{Space}
-    return
-  }
+  ; If ((A_TickCount - SemicolonPressedStartTime) < 2000 and A_PriorHotKey = "*; Up")
+  ; {
+  ;   ; SpacePressedStartTime = 0
+  ;   SendInput {Blind}{SC028}{Space}
+  ;   return
+  ; }
 Return

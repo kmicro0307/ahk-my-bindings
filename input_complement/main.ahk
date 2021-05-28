@@ -67,7 +67,6 @@ SetWorkingDir, %A_ScriptDir%
 ; ■ タスクビューでのhjklキーバインド 
 #IfWinActive ahk_class MultitaskingViewFrame
 #Include,  %A_ScriptDir%\key_binding_alttab.ahk
-
 ; -----------------------------------------
 ; 押しっぱなしへの対策コード
 ; -----------------------------------------

@@ -153,7 +153,8 @@ if (isSecondColon()){
     ; ActivateWindowByProcess("chrome")
     ActivateWindowByProcess("firefox")
     move_corsor_to_active_centor()
-    } else if (isActiveProcess("Obsidian") && isSecondKeyAfterCtrlJ() && CtrlPriorHotkey = "$^j"){
+    SemicolonPriorHotkey := "f"
+} else if (isActiveProcess("Obsidian") && isSecondKeyAfterCtrlJ() && CtrlPriorHotkey = "$^j"){
     ; ToolTip, %CtrlPriorHotkey%
     ; ToolTip, %A_PriorKey%
     ; 以下書かないとctrl j が CtrlPriorHotkeyのままになってキー入力がされない
