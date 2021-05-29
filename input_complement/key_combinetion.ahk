@@ -28,8 +28,6 @@
 ; w
 ; x
 ; y
-; z
-
 $a::
 if isSecondColon(){
     ; tooltip, test
@@ -202,7 +200,7 @@ Return
 
 $h::
 if (isPressedKeyWithSemicolon()) {
-    Send, {SC027}{Space}
+    Send, {SC027}
 } else  {
     Send, {Blind}h
 }
