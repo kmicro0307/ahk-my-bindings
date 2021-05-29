@@ -10,10 +10,10 @@ coordmode, mouse, screen
 SetWorkingDir, %A_ScriptDir%
 ; SetMouseDelay, 1
 ; #HotkeyModifierTimeout 100
-
 ;; -----------------------------------------
 ; 汎用コード
 ; -----------------------------------------
+
 #Include, %A_ScriptDir%\Command.ahk
 ; -----------------------------------------
 ; ウィンドウ，カーソル移動のバインディング
@@ -45,7 +45,7 @@ SetWorkingDir, %A_ScriptDir%
 
 ; ■ @のOne Shot Modifier実装 (ModForNumber and @)
 #Include, %A_ScriptDir%\at_main.ahk
-; #IfWinNotActive ahk_class UnityWndClass
+#IfWinNotActive ahk_class UnityWndClass
 
 ; ■ セミコロン + キー -> 記号キーを入力
 #Include, %A_ScriptDir%\key_combinetion.ahk

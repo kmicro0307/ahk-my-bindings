@@ -23,10 +23,15 @@ SetWorkingDir, %A_ScriptDir%
 ; $q::
 ; a := GetKeyState(";", "P")
  ; ToolTip,  %a%
-; Return 
 
 global SemicolonPressedStartTime = 0
 *;::
+    if GetKeyState("Ctrl", "P"){
+      Send, {Blind}{SC027}
+    }
+    if GetKeyState("Shift"){
+               Send, {Blind}{SC027}
+    }
     if ( SemicolonPressedStartTime = 0 ){
       SemicolonPressedStartTime := A_TickCount
     }
