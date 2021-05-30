@@ -501,3 +501,11 @@ if (isPressedKeyWithSemicolon()) {
     Send, {Blind}3
 }
 Return  
+
+$4::
+if (isPressedKeyWithSemicolon()) {
+    Send, ``
+} else  {
+    Send, {Blind}4
+}
+Return  
