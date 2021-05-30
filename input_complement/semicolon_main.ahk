@@ -26,27 +26,34 @@ SetWorkingDir, %A_ScriptDir%
 
 global SemicolonPressedStartTime = 0
 *;::
-    if GetKeyState("Ctrl", "P"){
-      Send, {Blind}{SC027}
-    }
-    if GetKeyState("Shift"){
-               Send, {Blind}{SC027}
-    }
+    ; if GetKeyState("Ctrl", "P"){
+    ;   Send, {Blind}{SC027}
+    ; }
+    ; if GetKeyState("Shift"){
+    ;   Send, {Blind}{SC027}
+    ; }
     if ( SemicolonPressedStartTime = 0 ){
       SemicolonPressedStartTime := A_TickCount
     }
     global SemicolonPriorHotkey := "*;"
-Return 
+Return
+
+^;:: Return
++;:: Return
 
 *; Up:: 
   ; ToolTip, %A_PriorKey% 
   ; ToolTip, %A_PriorHotKey% 
-  ; if (A_PriorHotkey = "*;"){
-  ;   return
-  ; }
+  if (A_PriorHotkey = "^;"){
+    Send, {Blind}{SC027}
+    return
+  }
+  if (A_PriorHotkey = "+;"){
+    Send, {Blind}{SC027}
+    return
+  }
   ; if isSecondColon(){
   ;   return
-  
   global SemicolonPriorHotkey := "*; Up"
   ; global SemicolonPriorkey := A_Priorkey
   ; If ((A_TickCount - SemicolonPressedStartTime) < 2000 and A_PriorHotKey = "*; Up")
@@ -55,4 +62,5 @@ Return
   ;   SendInput {Blind}{SC028}{Space}
   ;   return
   ; }
+  global SemicolonPressedStartTime = 0
 Return
