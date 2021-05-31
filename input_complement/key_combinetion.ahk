@@ -355,8 +355,8 @@ if (isSecondColon()){
 Return  
 
 $^t::
-; if (isPressedKeyWithSemicolon()) {
-if (isSecondColon()){
+if (isPressedKeyWithSemicolon()) {
+; if (isSecondColon()){
     Clipboard = %A_Year%-%A_Mon%-%A_MDay%
     Send, ^v
 } else  {
@@ -373,8 +373,8 @@ if (isPressedKeyWithSemicolon()) {
 Return
 
 $^u::
-; if (isPressedKeyWithSemicolon()) {
-if (isSecondColon()){
+if (isPressedKeyWithSemicolon()) {
+; if (isSecondColon()){
     If (IME_GET() == 1){
         IME_SET(0)  
         SendSnippet("-> ")
