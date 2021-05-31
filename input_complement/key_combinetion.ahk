@@ -147,7 +147,6 @@ if (isActiveProcess("tablacus") && isSecondKeyAfterCtrlJ() && CtrlPriorHotkey = 
 ;if (isSecondKeyAfterAltJ()){
 ; tooltip,%A_PriorHotkey%
 if (isSecondColon()){
-    ; tooltip,test
     ; ActivateWindowByProcess("chrome")
     ActivateWindowByProcess("firefox")
     move_corsor_to_active_centor()
@@ -173,7 +172,7 @@ $^f::
 ; Tooltip, %CtrlPriorHotkey%
 if (isActiveProcess("Obsidian") && isSecondKeyAfterCtrlJ() && CtrlPriorHotkey = "$^j"){
     ; ToolTip, %CtrlPriorHotkey%
-    ToolTip, %A_PriorHotKey%
+    ; ToolTip, %A_PriorHotKey%
     ; 以下書かないとctrl j が CtrlPriorHotkeyのままになってキー入力がされない
     Send, ^+e
     CtrlPriorHotkey := "^+e"
@@ -356,7 +355,8 @@ if (isSecondColon()){
 Return  
 
 $^t::
-if (isPressedKeyWithSemicolon()) {
+; if (isPressedKeyWithSemicolon()) {
+if (isSecondColon()){
     Clipboard = %A_Year%-%A_Mon%-%A_MDay%
     Send, ^v
 } else  {
@@ -373,7 +373,8 @@ if (isPressedKeyWithSemicolon()) {
 Return
 
 $^u::
-if (isPressedKeyWithSemicolon()) {
+; if (isPressedKeyWithSemicolon()) {
+if (isSecondColon()){
     If (IME_GET() == 1){
         IME_SET(0)  
         SendSnippet("-> ")

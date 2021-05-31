@@ -10,14 +10,26 @@ isSecondKeyAfterAltJ() {
     ; return (AltPriorHotKey = "$!j")
     return Flag 
 }
-
 isSecondColon() {
     ; ToolTip, %ab% 
     ; Ctrl を同一コードで書くとpriorがupになるため，globalから取ってきている
     ; tooltip, %A_PriorHotkey%
-    flag := SemicolonPriorHotkey = "*; Up" and A_TickCount - SemicolonPressedStartTime < 400
-    SemicolonPriorHotkey = ""
-    return flag
+    ; tooltip, test
+    ; tooltip, %SemicolonPressedStartTime%
+    ; tooltip, %A_TickCount%
+    ; tooltip, %A_PriorHotkey%
+    ; flag := SemicolonPriorHotkey = "*; Up" and A_TickCount - SemicolonPressedStartTime < 400 and A_PriorHotkey="~Ctrl"
+    ; if ( SemicolonPriorHotkey = "*; Up" and A_TickCount - SemicolonPressedStartTime < 400 and A_PriorHotkey="~Ctrl"){
+    if ( SemicolonPriorHotkey = "*; Up" and A_PriorHotkey="~Ctrl"){
+        SemicolonPressedStartTime := 0
+        return True
+    }
+    if ( SemicolonPriorHotkey = "*; Up" and A_PriorHotkey="SC027 Up"){
+        SemicolonPressedStartTime := 0
+        return True
+    }
+    ; SemicolonPriorHotkey = ""
+    return False
     ; tooltip,
     ; return (A_PriorHotKey = "$^j")
 }

@@ -32,7 +32,7 @@ SC027::
     ; if GetKeyState("Shift"){
     ;   Send, {Blind}{SC027}
     ; }
-    if ( SemicolonPressedStartTime = 0){
+    if ( SemicolonPressedStartTime = 0 or SemicolonPriorHotkey = "*; Up"){
       SemicolonPressedStartTime := A_TickCount
     }
     global SemicolonPriorHotkey := "*;"
@@ -47,12 +47,13 @@ SC027 Up::
   ; if (A_PriorHotkey = "+;"){
   ;   Send, {Blind}{SC027}
   ;   return
-  ; }
-  ; if isSecondColon(){
-  ;   return
-  if (SemicolonPriorHotkey = "*;"){
+  ;{} }
+  if (A_PriorHotkey = "SC027"){
     global SemicolonPriorHotkey := "*; Up"
     return 
+  } else{
+    global SemicolonPriorHotkey := ""
+     SemicolonPressedStartTime := 0
   }
   ; global SemicolonPriorkey := A_Priorkey
   ; If ((A_TickCount - SemicolonPressedStartTime) < 2000 and A_PriorHotKey = "*; Up")
