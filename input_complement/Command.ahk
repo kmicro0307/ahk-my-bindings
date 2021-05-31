@@ -16,7 +16,7 @@ isSecondColon() {
     ; Ctrl を同一コードで書くとpriorがupになるため，globalから取ってきている
     ; tooltip, %A_PriorHotkey%
     flag := SemicolonPriorHotkey = "*; Up" and A_TickCount - SemicolonPressedStartTime < 400
-    SemicolonPressedStartTime = 0
+    SemicolonPriorHotkey = ""
     return flag
     ; tooltip,
     ; return (A_PriorHotKey = "$^j")
