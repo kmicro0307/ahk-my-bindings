@@ -173,7 +173,7 @@ $^f::
 ; Tooltip, %CtrlPriorHotkey%
 if (isActiveProcess("Obsidian") && isSecondKeyAfterCtrlJ() && CtrlPriorHotkey = "$^j"){
     ; ToolTip, %CtrlPriorHotkey%
-    ; ToolTip, %A_PriorKey%
+    ToolTip, %A_PriorHotKey%
     ; 以下書かないとctrl j が CtrlPriorHotkeyのままになってキー入力がされない
     Send, ^+e
     CtrlPriorHotkey := "^+e"
