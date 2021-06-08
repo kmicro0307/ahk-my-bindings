@@ -25,6 +25,7 @@ SetWorkingDir, %A_ScriptDir%
  ; ToolTip,  %a%
 
 global SemicolonPressedStartTime = 0
+^SC027:: Return
 SC027::
     ; if GetKeyState("Ctrl", "P"){
     ;   Send, {Blind}{SC027}

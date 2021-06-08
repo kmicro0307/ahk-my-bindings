@@ -238,7 +238,7 @@ if (isPressedKeyWithSemicolon()) {
 Return  
 
 $j::
-$+j::
+; $+j::
 if (isActiveProcess("Obsidian")  && isSecondKeyAfterCtrlJ() && A_PriorKey = "j"){
     ; 以下のような部分いらないかも 
     CtrlPriorHotkey := "j"
