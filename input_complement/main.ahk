@@ -44,7 +44,7 @@ SetWorkingDir, %A_ScriptDir%
 #Include, %A_ScriptDir%\semicolon_main.ahk
 
 ; ■ @のOne Shot Modifier実装 (ModForNumber and @)
-#Include, %A_ScriptDir%\at_main.ahk
+; #Include, %A_ScriptDir%\at_main.ahk
 #IfWinNotActive ahk_class UnityWndClass
 
 ; ■ セミコロン + キー -> 記号キーを入力
