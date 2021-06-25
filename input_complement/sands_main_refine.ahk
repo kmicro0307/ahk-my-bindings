@@ -20,7 +20,6 @@
 SpacePressedStartTime = 0
 *Space::
   ; 以前はSendだったが、Sendだと`+キー`が発火しなかったので、 Sendに
-
   ; 2021-05-13 文字入力時に変換モードをオフにする
   conv_mode := IME_GetConverting()
   if (conv_mode == 2){

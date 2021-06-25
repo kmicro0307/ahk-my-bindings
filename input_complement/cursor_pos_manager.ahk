@@ -231,7 +231,9 @@ LAlt & u::
 Return
 
 ; LAlt & u::Send,^+{Tab}
-~LAlt & q:: AltTab
+
+; zoom in セミコロンは２キーバインドのため使えないので
+LAlt & q:: Send, ^;
 ; LAlt & h:: Send, +!{Left}
 ; LAlt & l:: Send, +!{Right}
 ; LAlt & .:: Send, !+l
@@ -351,6 +353,8 @@ Return
 ; SetKeyDelay -1   ; 置換先がマウスの場合は SetMouseDelayになる
 ; Send {Blind}{AltTab DownTemp}  ; "DownTemp"は"Down"に似ているが押下中はキーリピートを送る
 ; return
+
+
 
 ; LAlt & w up:: 
 ; SetKeyDelay -1  ; PressDurationパラメタを指定しない理由は後述

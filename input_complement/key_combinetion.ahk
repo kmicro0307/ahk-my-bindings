@@ -1,39 +1,11 @@
 ﻿; キーコンビネーションという名前だが，実装全般をとりあえず書く
 #InstallKeybdHook
 
-; #IfWinActive 
-; #IfWinNotActive ahk_class VRChat 
-; a   
-; b
-; c
-; d
-; e
-; f
-; g
-; h
-; i
-; j
-; k
-; l
-; m
-; n
-; o
-; p
-; q
-; r
-; s
-; t
-; u
-; v
-; w
-; x
-; y
 $a::
 if isSecondColon(){
-    ; tooltip, test
+    Send, {SC027}
     SemicolonPriorHotkey := "a"
-}
-if (isPressedKeyWithSemicolon()) {
+} else if (isPressedKeyWithSemicolon()) {
     Send, =
 } else if (isPressedKeyWithAt()) {
     Send, 4
@@ -243,7 +215,9 @@ if (isActiveProcess("Obsidian")  && isSecondKeyAfterCtrlJ() && A_PriorKey = "j")
     ; 以下のような部分いらないかも 
     CtrlPriorHotkey := "j"
     Send, j
-}else if (isPressedKeyWithSemicolon()) {
+} else if (isSecondColon()){
+    Send, {SC027}
+} else if (isPressedKeyWithSemicolon()) {
     Send, {blind}(
 } else  {
     Send, {Blind}j
@@ -344,9 +318,9 @@ Return
 $t::
 ;if (isSecondKeyAfterAltJ()){
 if (isSecondColon()){
-    ActivateWindowByProcess("terminal") 
-    move_corsor_to_active_centor()
-    SemicolonPriorHotkey := "t"
+    Clipboard = %A_Year%-%A_Mon%-%A_MDay%
+    SemicolonPriorHotkey := "^t"
+    Send, ^v
 }else if (isPressedKeyWithSemicolon()) {
     Send, $
 } else  {
@@ -355,17 +329,20 @@ if (isSecondColon()){
 Return  
 
 $^t::
-if (isPressedKeyWithSemicolon()) {
-; if (isSecondColon()){
-    Clipboard = %A_Year%-%A_Mon%-%A_MDay%
-    Send, ^v
+if (isSecondColon()){
+    ActivateWindowByProcess("terminal") 
+    move_corsor_to_active_centor()
+    SemicolonPriorHotkey := "^t"
+}else if (isPressedKeyWithSemicolon()) {
 } else  {
     Send, {Blind}t
 }
 Return  
 
 $u::
-if (isPressedKeyWithSemicolon()) {
+if (isSecondColon()){
+        SendSnippet(" -> ")        
+} else if (isPressedKeyWithSemicolon()) {
     Send, &
 } else  {
     Send, {Blind}u
@@ -375,9 +352,12 @@ Return
 $^u::
 if (isPressedKeyWithSemicolon()) {
 ; if (isSecondColon()){
+    Clipboard = %A_Year%-%A_Mon%-%A_MDay%
+    SemicolonPriorHotkey := "^t"
+    Send, ^v
     If (IME_GET() == 1){
         IME_SET(0)  
-        SendSnippet("-> ")
+        SendSnippet(" -> ")
         ReleaseModifiers()
         IME_SET(1) 
     } else {
@@ -440,7 +420,7 @@ Return
 
 $y::
 if (isPressedKeyWithSemicolon()) {
-    Send, -
+    Send, {+}
 } else  {
     Send, {Blind}y
 }
@@ -497,7 +477,7 @@ Return
 
 $3::
 if (isPressedKeyWithSemicolon()) {
-    Send, {*}
+    Send, {+}
 } else  {
     Send, {Blind}3
 }

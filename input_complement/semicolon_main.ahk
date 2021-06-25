@@ -25,7 +25,13 @@ SetWorkingDir, %A_ScriptDir%
  ; ToolTip,  %a%
 
 global SemicolonPressedStartTime = 0
+
+; TODO: ここの実装，謎. スニペットの関係?
 ^SC027:: Return
+
+; +が無限に押されてしまうので，別のキーで代替
++SC027:: Return
+
 SC027::
     ; if GetKeyState("Ctrl", "P"){
     ;   Send, {Blind}{SC027}
