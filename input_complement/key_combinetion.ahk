@@ -360,10 +360,6 @@ Return
 $^u::
 if (isPressedKeyWithSemicolon()) {
 ; if (isSecondColon()){
-    Clipboard = %A_Year%-%A_Mon%-%A_MDay%
-    SemicolonPriorHotkey := "^t"
-    SemicolonPressedStartTime := 0
-    Send, ^v
     If (IME_GET() == 1){
         IME_SET(0)  
         SendSnippet(" -> ")
