@@ -5,6 +5,7 @@ $a::
 if isSecondColon(){
     Send, {SC027}
     SemicolonPriorHotkey := "a"
+    SemicolonPressedStartTime := 0
 } else if (isPressedKeyWithSemicolon()) {
     Send, =
 } else if (isPressedKeyWithAt()) {
@@ -32,6 +33,7 @@ if (isSecondColon()){
     ActivateWindowByProcess("chrome")
     move_corsor_to_active_centor()
     SemicolonPriorHotkey := "c"
+    SemicolonPressedStartTime := 0
 } else if (isPressedKeyWithSemicolon()) {
     Send, [
 } else if (isPressedKeyWithAt()) {
@@ -56,6 +58,7 @@ if (isSecondColon()){
     ActivateWindowByProcess("chrome")
     move_corsor_to_active_centor()
     SemicolonPriorHotkey := "+c"
+    SemicolonPressedStartTime := 0
 }else if (isPressedKeyWithSemicolon()) {
     Send, =
 } else  {
@@ -86,6 +89,7 @@ if (isActiveProcess("tablacus") && isSecondKeyAfterCtrlJ() && CtrlPriorHotkey = 
 } else if (isSecondColon()){
     ActivateWindowByProcess("tablacus") 
     SemicolonPriorHotkey := "e"
+    SemicolonPressedStartTime := 0
     Return
 }
 if (isPressedKeyWithSemicolon()) {
@@ -123,6 +127,7 @@ if (isSecondColon()){
     ActivateWindowByProcess("firefox")
     move_corsor_to_active_centor()
     SemicolonPriorHotkey := "f"
+    SemicolonPressedStartTime := 0
 } else if (isActiveProcess("Obsidian") && isSecondKeyAfterCtrlJ() && CtrlPriorHotkey = "$^j"){
     ; ToolTip, %CtrlPriorHotkey%
     ; ToolTip, %A_PriorKey%
@@ -262,6 +267,7 @@ if (isSecondColon()){
     ActivateWindowByProcess("Obsidian")
     move_corsor_to_active_centor()
     SemicolonPriorHotkey := "o"
+    SemicolonPressedStartTime := 0
 }else if (isPressedKeyWithSemicolon()) {
     Send, {^}
 } else  {
@@ -320,6 +326,7 @@ $t::
 if (isSecondColon()){
     Clipboard = %A_Year%-%A_Mon%-%A_MDay%
     SemicolonPriorHotkey := "^t"
+    SemicolonPressedStartTime := 0
     Send, ^v
 }else if (isPressedKeyWithSemicolon()) {
     Send, $
@@ -333,6 +340,7 @@ if (isSecondColon()){
     ActivateWindowByProcess("terminal") 
     move_corsor_to_active_centor()
     SemicolonPriorHotkey := "^t"
+    SemicolonPressedStartTime := 0
 }else if (isPressedKeyWithSemicolon()) {
 } else  {
     Send, {Blind}t
@@ -354,6 +362,7 @@ if (isPressedKeyWithSemicolon()) {
 ; if (isSecondColon()){
     Clipboard = %A_Year%-%A_Mon%-%A_MDay%
     SemicolonPriorHotkey := "^t"
+    SemicolonPressedStartTime := 0
     Send, ^v
     If (IME_GET() == 1){
         IME_SET(0)  
@@ -386,6 +395,7 @@ if (isSecondColon()){
     ActivateWindowByProcess("vscode") 
     move_corsor_to_active_centor()
     SemicolonPriorHotkey := "v"
+    SemicolonPressedStartTime := 0
 } else if (isPressedKeyWithAt()) {
     Send, 9
 }else if (isPressedKeyWithSemicolon()) {
@@ -466,6 +476,7 @@ if (isSecondColon()){
     ActivateWindowByProcess("Obsidian")
     move_corsor_to_active_centor()
     SemicolonPriorHotkey := "2"
+    SemicolonPressedStartTime := 0
     return
 }
 if (isPressedKeyWithSemicolon()) {

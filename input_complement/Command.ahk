@@ -20,12 +20,11 @@ isSecondColon() {
     ; tooltip, %A_PriorHotkey%
     ; flag := SemicolonPriorHotkey = "*; Up" and A_TickCount - SemicolonPressedStartTime < 400 and A_PriorHotkey="~Ctrl"
     ; if ( SemicolonPriorHotkey = "*; Up" and A_TickCount - SemicolonPressedStartTime < 400 and A_PriorHotkey="~Ctrl"){
-    if ( SemicolonPriorHotkey = "*; Up" and A_TickCount - SemicolonPressedStartTime < 600 and A_PriorHotkey="~Ctrl"){
+    if ( SemicolonPriorHotkey = "*; Up" and A_TickCount - SemicolonPressedStartTime < 400 and A_PriorHotkey="~Ctrl"){
         SemicolonPressedStartTime := 0
         return True
     }
-    if ( SemicolonPriorHotkey = "*; Up" and A_TickCount - SemicolonPressedStartTime < 600 and A_PriorHotkey="SC027 Up"){
-        SemicolonPressedStartTime := 0
+    if ( SemicolonPriorHotkey = "*; Up" and A_TickCount - SemicolonPressedStartTime < 400 and A_PriorHotkey="SC027 Up"){
         return True
     }
     ; SemicolonPriorHotkey = ""

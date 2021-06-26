@@ -45,6 +45,7 @@ SC027::
     global SemicolonPriorHotkey := "*;"
 Return
 
+
 SC027 Up:: 
   ; ToolTip, %A_PriorHotKey% 
   ; if (A_PriorHotkey = "^;"){
@@ -54,14 +55,15 @@ SC027 Up::
   ; if (A_PriorHotkey = "+;"){
   ;   Send, {Blind}{SC027}
   ;   return
-  ;{} }
+  ;{} }}}}}}}}}
   if (A_PriorHotkey = "SC027"){
-    global SemicolonPriorHotkey := "*; Up"
+      global SemicolonPriorHotkey := "*; Up"
     return 
   } else{
     global SemicolonPriorHotkey := ""
      SemicolonPressedStartTime := 0
   }
+  
   ; global SemicolonPriorkey := A_Priorkey
   ; If ((A_TickCount - SemicolonPressedStartTime) < 2000 and A_PriorHotKey = "*; Up")
   ; {

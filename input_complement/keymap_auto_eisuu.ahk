@@ -42,7 +42,9 @@ vk1C up::
   ; Send, % (A_TimeSincePriorHotkey < 1000 ? "{vk1C}":"")
   KeyPresseUpTime := A_TickCount
   PressedTime := KeyPressedUpTime-KeyPressedStartTime
-  If (KeyPresseUpTime- KeyPressedStartTime  < 300 and A_PriorHotkey="*vk1C"and A_PriorKey== "")
+  ; 直前のキーが変換であるかを判定する
+  ; 前回のキーが変換だった場合，PriorKeyは""になる
+  If (KeyPresseUpTime- KeyPressedStartTime  < 200 and A_PriorHotkey="*vk1C"and A_PriorKey== "")
   { 
     ; Send, {vk1C}
     Send, {Blind}{Enter}
@@ -129,7 +131,6 @@ vk1C up::
 ; aとfを使用して行頭，行末移動する(使用頻度高い )
 ~vk1C & a::Send, {NumpadHome}
 ~vk1C & f::Send,{NumpadEnd}
-
 ; 無変換での実装
 ;vkf3 & h::send, {blind}{left}
 ;vkF3 & j::Send, {Blind}{Down}
@@ -158,14 +159,4 @@ vk1C up::
 
 ;文字削除
 ;vkF3 & x:: Send,{Blind}{BackSpace}
-
-
-
-
-
-
-
-
-
-
-
+ 
