@@ -30,6 +30,7 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 ; -----------------------------------------
 
 KeyPressedStartTime := 0
+
 *vk1C::
   ; tooltip, %KeyPressedStartTime%
   if ( KeyPressedStartTime = 0 ){
@@ -41,7 +42,7 @@ vk1C up::
   ; Send, % (A_TimeSincePriorHotkey < 1000 ? "{vk1C}":"")
   KeyPresseUpTime := A_TickCount
   PressedTime := KeyPressedUpTime-KeyPressedStartTime
-  If (KeyPresseUpTime- KeyPressedStartTime  < 300 and A_PriorHotkey="*vk1C" )
+  If (KeyPresseUpTime- KeyPressedStartTime  < 300 and A_PriorHotkey="*vk1C"and A_PriorKey== "")
   { 
     ; Send, {vk1C}
     Send, {Blind}{Enter}
