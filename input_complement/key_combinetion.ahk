@@ -141,7 +141,6 @@ if (isSecondColon()){
     Send, +]
 } else  {
     Send, {Blind}f
-    
 }
 Return  
 

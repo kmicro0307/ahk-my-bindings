@@ -47,7 +47,8 @@ vk1C up::
   If (KeyPresseUpTime- KeyPressedStartTime  < 200 and A_PriorHotkey="*vk1C"and A_PriorKey== "")
   { 
     ; Send, {vk1C}
-    Send, {Blind}{Enter}
+    Send, {vkF3}
+    ; Send, {Blind}{Enter}
   }
   ; Send,{vk1C}                
   KeyPressedStartTime := 0

@@ -44,7 +44,7 @@ KeyPressedStartTime = 0
     { 
       ;ctrlだとプロパティが設定できないためバグがでる or カスタマイズ性が低いため，IME_SETは使わない
      ; IME_SET(0) 
-     Send, {vkF3}
+     Send, {Enter}
      ; 以下意味有るか不明 おまじない
     Send, {Ctrl Up}
     }
