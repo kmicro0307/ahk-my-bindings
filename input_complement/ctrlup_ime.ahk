@@ -15,7 +15,6 @@
 ; 全てのキー(Ctrl & aなど含む)が網羅的に定義されている場合，Ctrl Up内でprioritykeyが拾える
 ;->コードのCtrl j用の部分が消せるようになるため，結合度が下がる
 
-
 #Include, %A_ScriptDir%\Command.ahk
 #InstallKeybdHook
 #UseHook
@@ -43,8 +42,8 @@ KeyPressedStartTime = 0
     If (KeyPressedUpTime- KeyPressedStartTime  < 300 and A_PriorKey = "LControl")
     { 
       ;ctrlだとプロパティが設定できないためバグがでる or カスタマイズ性が低いため，IME_SETは使わない
-     ; IME_SET(0) 
-     Send, {Enter}
+     IME_SET(0) 
+    ;  Send, {Enter}
      ; 以下意味有るか不明 おまじない
     Send, {Ctrl Up}
     }
@@ -65,8 +64,6 @@ KeyPressedStartTime = 0
 
 ; - KeyPressedStartTimeをこのような形で管理しないとリセットされる
 ; 	- Ctrlは押している時随時じっこうされるため
-
-
 
 ; Tips Ctrl j -> f とかやりたい場合， 以下のような記述を同じコード内で書くと意図した動作にならないので注意
 ; $f::
@@ -93,7 +90,6 @@ KeyPressedStartTime = 0
 ;   Input, SandS_AnyKey, L1 V,{LCtrl}{RCtrl}{Ctrl}{LAlt}{RAlt}{LShift}{RShift}{LWin}{RWin}{AppsKey}{F1}{F2}{F3}{F4}{F5}{F6}{F7}{F8}{F9}{F10}{F11}{F12}{Left}{Right}{Up}{Down}{Home}{End}{PgUp}{PgDn}{Del}{Ins}{BS}{Capslock}{Numlock}{PrintScreen}{Pause} 
 ;   SandS_AnyKeyPressed := 1  
 ;   Return
-
  
 ; *1 Up:: 
 ;   SendInput {RCtrl Up}

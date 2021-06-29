@@ -325,6 +325,7 @@ LAlt Up::
     { 
         Send, {Escape}
         Send, {Escape}
+        IME_SET(0)
         ; Send {Alt Down}{Tab}{Alt Up}
         ; ; ToolTip, %A_TimeSincePriorHotkey% 
         ; Sleep, 50
