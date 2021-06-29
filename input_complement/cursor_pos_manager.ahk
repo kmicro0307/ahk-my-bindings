@@ -323,12 +323,14 @@ LAlt Up::
     ; ToolTip, %PressedTime% 
     If (KeyPressedUpTime- KeyPressedStartTime  < 200 and A_PriorHotKey == "~LAlt" and A_PriorKey == "LAlt")
     { 
-        Send {Alt Down}{Tab}{Alt Up}
+        Send, {Escape}
+        Send, {Escape}
+        ; Send {Alt Down}{Tab}{Alt Up}
         ; ; ToolTip, %A_TimeSincePriorHotkey% 
         ; Sleep, 50
         ; FlashWindow()
-        Sleep, 200
-        move_corsor_to_active_centor()
+        ; Sleep, 200
+        ; move_corsor_to_active_centor()
     }
     KeyPressedStartTime := 0
     ; if (A_TimeSincePriorHotkey < 300 and A_PriorKey = "LAlt"){
