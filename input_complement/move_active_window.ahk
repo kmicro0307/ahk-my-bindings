@@ -82,7 +82,7 @@ WindowPositionMoveFunc()
     ; キーに対応したモニターの取得
     monitor := mm.MonitorPos[pos]
 
-    keymap_position_XY := {"~RAlt & d":{"X":960,"Y":0}
+    keymap_position_XY := {"~RAlt & d":{"X":900,"Y":0}
     ,"~RAlt & s":{"X":0,"Y":0}
     ,"~RAlt & f":{"X":monitor.left,"Y":0}
     ,"~RAlt & v":{"X":monitor.left,"Y":monitor.height/2}
@@ -91,9 +91,9 @@ WindowPositionMoveFunc()
     ,"~RAlt & a":{"X":monitor.left,"Y":monitor.top}
     ,"~RAlt & z":{"X":monitor.left,"Y":monitor.bottom/2}}
 
-        keymap_resize_XY := {"~RAlt & d":{"X":960,"Y":1080 -40}
+        keymap_resize_XY := {"~RAlt & d":{"X":1020,"Y":1080 -40}
     ,"~RAlt & s":{"X":960,"Y": 1080 -40}
-    ,"~RAlt & f":{"X":monitor.width,"Y":monitor.height/2}
+    ,"~RAlt & f":{"X":940,"Y":monitor.height}
     ,"~RAlt & v":{"X":monitor.width,"Y":monitor.height/2}
     ,"~RAlt & x":{"X":monitor.width/2,"Y": monitor.height -30}
     ,"~RAlt & c":{"X":monitor.width/2,"Y":monitor.height -30}

@@ -299,7 +299,7 @@ Return
 ;       move_corsor_to_active_centor()
 ; }
 
-RAlt Up::
+Alt Up::
     ; altが暴発するので時間で実行しようと思ったが、
     ; LALTの実行タイミングが離した瞬間なため、難しい
     ; ALT暴発が常に付きまとうのは面倒なので２キーでの動作にする
