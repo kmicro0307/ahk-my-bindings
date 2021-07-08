@@ -25,7 +25,7 @@ class MonitorProperty{
     ;etc モニター1, 横の場合、{L:{left:None,down:3,top:None,right:1},R:{left:1.L,down:3.R,top:None,right:2.T}}
 }
 
-class MonitorManager{
+    class MonitorManager{
 
     __New(){
         SysGet, MonitorCount, MonitorCount
@@ -68,37 +68,37 @@ class MonitorManager{
 WindowPositionMoveFunc()
 {
     ;このあたりinitで定義できるか
-    keymap_positon_dict := {"~lalt & d":"U"
-        ,"~lalt & s":"U"
-        ,"~lalt & f":"R"
-        ,"~lalt & v":"R"
-        ,"~lalt & x":"B"
-        ,"~lalt & c":"B"
-        ,"~lalt & a":"L"
-    ,"~lalt & z":"L"}
+    keymap_positon_dict := {"~ralt & d":"U"
+        ,"~ralt & s":"U"
+        ,"~ralt & f":"R"
+        ,"~ralt & v":"R"
+        ,"~ralt & x":"B"
+        ,"~ralt & c":"B"
+        ,"~ralt & a":"L"
+    ,"~ralt & z":"L"}
     hotkey = %A_ThisHotkey%
     pos := keymap_positon_dict[hotkey] 
     mm := New MonitorManager()
     ; キーに対応したモニターの取得
     monitor := mm.MonitorPos[pos]
 
-    keymap_position_XY := {"~LAlt & d":{"X":960,"Y":0}
-    ,"~LAlt & s":{"X":0,"Y":0}
-    ,"~LAlt & f":{"X":monitor.left,"Y":0}
-    ,"~LAlt & v":{"X":monitor.left,"Y":monitor.height/2}
-    ,"~LAlt & x":{"X":0,"Y":monitor.bottom}
-    ,"~LAlt & c":{"X":monitor.right/2,"Y":monitor.m}
-    ,"~LAlt & a":{"X":monitor.left,"Y":monitor.top}
-    ,"~LAlt & z":{"X":monitor.left,"Y":monitor.bottom/2}}
+    keymap_position_XY := {"~RAlt & d":{"X":960,"Y":0}
+    ,"~RAlt & s":{"X":0,"Y":0}
+    ,"~RAlt & f":{"X":monitor.left,"Y":0}
+    ,"~RAlt & v":{"X":monitor.left,"Y":monitor.height/2}
+    ,"~RAlt & x":{"X":0,"Y":monitor.bottom}
+    ,"~RAlt & c":{"X":monitor.right/2,"Y":monitor.m}
+    ,"~RAlt & a":{"X":monitor.left,"Y":monitor.top}
+    ,"~RAlt & z":{"X":monitor.left,"Y":monitor.bottom/2}}
 
-        keymap_resize_XY := {"~LAlt & d":{"X":960,"Y":1080 -40}
-    ,"~LAlt & s":{"X":960,"Y": 1080 -40}
-    ,"~LAlt & f":{"X":monitor.width,"Y":monitor.height/2}
-    ,"~LAlt & v":{"X":monitor.width,"Y":monitor.height/2}
-    ,"~LAlt & x":{"X":monitor.width/2,"Y": monitor.height -30}
-    ,"~LAlt & c":{"X":monitor.width/2,"Y":monitor.height -30}
-    ,"~LAlt & a":{"X":monitor.width,"Y":monitor.height/2}
-    ,"~LAlt & z":{"X":monitor.width,"Y":monitor.height/2}}
+        keymap_resize_XY := {"~RAlt & d":{"X":960,"Y":1080 -40}
+    ,"~RAlt & s":{"X":960,"Y": 1080 -40}
+    ,"~RAlt & f":{"X":monitor.width,"Y":monitor.height/2}
+    ,"~RAlt & v":{"X":monitor.width,"Y":monitor.height/2}
+    ,"~RAlt & x":{"X":monitor.width/2,"Y": monitor.height -30}
+    ,"~RAlt & c":{"X":monitor.width/2,"Y":monitor.height -30}
+    ,"~RAlt & a":{"X":monitor.width,"Y":monitor.height/2}
+    ,"~RAlt & z":{"X":monitor.width,"Y":monitor.height/2}}
 
         X := keymap_position_XY[hotkey]["X"]
         Y := keymap_position_XY[hotkey]["Y"]

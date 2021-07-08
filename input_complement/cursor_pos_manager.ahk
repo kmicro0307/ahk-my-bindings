@@ -17,15 +17,15 @@ global keymap_move_len := {"!h":{x:100, y:0, f:"w"}
     ,"!+l":{x:-100, y:0,f:"x"}
     ,"vk1d & z":"l"}
 
-global keymap_value_dict := {"~lalt & d":{x:1355, y:653}
-    ,"~lalt & s":{x:355, y:653}
-    ,"~lalt & f":{x:2444, y:588}
-    ,"~lalt & v":{x:2530, y:1200}
-    ,"~lalt & x":{x:389, y:1530}
-    ,"~lalt & c":{x:1530, y:1500}
-    ,"~lalt & a":{x:-540, y:394}
-    ,"~lalt & z":{x:-540, y:1254}
-    ,"~lalt & g":{x:3200, y:500}}
+global keymap_value_dict := {"~ralt & d":{x:1355, y:653}
+    ,"~ralt & s":{x:355, y:653}
+    ,"~ralt & f":{x:2444, y:588}
+    ,"~ralt & v":{x:2530, y:1200}
+    ,"~ralt & x":{x:389, y:1530}
+    ,"~ralt & c":{x:1530, y:1500}
+    ,"~ralt & a":{x:-540, y:394}
+    ,"~ralt & z":{x:-540, y:1254}
+    ,"~ralt & g":{x:3200, y:500}}
 ; for hotkey, value in keymap_value_dict 
 ;     create_hotkey(hotkey,value)
 
@@ -35,13 +35,13 @@ global keymap_value_dict := {"~lalt & d":{x:1355, y:653}
 ; firefox -> alt w (Cycle Last Used Tabs)
 ; normal -> lalt h
 
-LAlt & l::
+RAlt & l::
     ; if (GetKeyState("Shift")){
     ;     if (isPressedKeyWithSemicolon()) {
     ;     } else if (isActiveProcess("firefox")) {
-    ;         Send, {LAlt}{Shift}
+    ;         Send, {RAlt}{Shift}
     ;     } else {    
-    ;         Send, {Blind}{LAlt}{Shift}h
+    ;         Send, {Blind}{RAlt}{Shift}h
     ;     }
     ; }
     if (isPressedKeyWithSemicolon()) {
@@ -51,17 +51,17 @@ LAlt & l::
     } else if (isActiveProcess("tablacus")) {
         Send, {Blind}{Lalt}{.}
     } else {    
-        Send, {Blind}{LAlt}l
+        Send, {Blind}{RAlt}l
     }
 Return
 
-LAlt & h::
+RAlt & h::
     ; if (GetKeyState("Shift")){
     ;     if (isPressedKeyWithSemicolon()) {
     ;     } else if (isActiveProcess("firefox")) {
-    ;         Send, {LAlt}{Shift}
+    ;         Send, {RAlt}{Shift}
     ;     } else {    
-    ;         Send, {Blind}{LAlt}{Shift}h
+    ;         Send, {Blind}{RAlt}{Shift}h
     ;     }
     ; }
     if (isPressedKeyWithSemicolon()) {
@@ -70,20 +70,20 @@ LAlt & h::
     } else if (isActiveProcess("tablacus")) {
         Send, {Blind}{Lalt}{,}
     } else {    
-        Send, {Blind}{LAlt}h
+        Send, {Blind}{RAlt}h
    }
 Return
 
 
-~LAlt & a::
-~LAlt & s::
-~LAlt & d::
-~LAlt & f::
-~LAlt & g::
-~LAlt & z::
-~LAlt & x::
-~LAlt & c::
-~LAlt & v::
+~RAlt & a::
+~RAlt & s::
+~RAlt & d::
+~RAlt & f::
+~RAlt & g::
+~RAlt & z::
+~RAlt & x::
+~RAlt & c::
+~RAlt & v::
 {
     ; ToolTip, %A_PriorHotKey% 
     sleep, 10
@@ -107,7 +107,7 @@ Return
     Return
 }
 
-; ~LAlt & a::
+; ~RAlt & a::
 ;     sleep, 10
 ;     if (GetKeyState("Shift")) 
 ;     {
@@ -152,7 +152,7 @@ Return
 ;         return
 ; }
 
-~LAlt & e::
+~RAlt & e::
         move_corsor_to_active_centor()
 Return
 
@@ -205,15 +205,15 @@ Return
 
 ; ctrl+tab
 
-; LAlt Shift o or u :
+; RAlt Shift o or u :
 ; firefox: tree style tab 親タブ感の移動?
-; LAltの上に実装している関係で，3キーバインドが難しい
+; RAltの上に実装している関係で，3キーバインドが難しい
 ; !o:: Send,^{Tab}
 ; !+u:: Send, !^u 
 
 ; !u:: Send,^+{Tab}
 ; !+o:: Send, !^o 
-LAlt & o::
+RAlt & o::
     if (GetKeyState("Shift")){
         Send, !^o
     } else {
@@ -221,7 +221,7 @@ LAlt & o::
     }
 Return
 
-LAlt & u::
+RAlt & u::
     if (GetKeyState("Shift")){
         Send, !^u
         Return
@@ -230,14 +230,14 @@ LAlt & u::
     }
 Return
 
-; LAlt & u::Send,^+{Tab}
+; RAlt & u::Send,^+{Tab}
 
 ; zoom in セミコロンは２キーバインドのため使えないので
-LAlt & q:: Send, ^;
-; LAlt & h:: Send, +!{Left}
-; LAlt & l:: Send, +!{Right}
-; LAlt & .:: Send, !+l
-; LAlt & ,:: Send, !+h
+RAlt & q:: Send, ^;
+; RAlt & h:: Send, +!{Left}
+; RAlt & l:: Send, +!{Right}
+; RAlt & .:: Send, !+l
+; RAlt & ,:: Send, !+h
 
 #k::
 Send, {Blind}{LWin}{Up}
@@ -263,7 +263,7 @@ Return
 ;~Alt::
 ;p = %A_PriorHotkey%
 ; MsgBox, %p%
-; Input, h, L1, V,{LAlt}{Alt}{RAlt}
+; Input, h, L1, V,{RAlt}{Alt}{RAlt}
 
 ; if (isSecondKey()){
 ;     send, {alt down}{tab}
@@ -278,8 +278,8 @@ isDoubleKey() {
 }
 
 global KeyPressedStartTime := 0
-~LAlt::
-    Send, {LAlt Down}
+~RAlt::
+    Send, {RAlt Down}
     ; ToolTip, %KeyPressedStartTime% 
     if ( KeyPressedStartTime = 0 ){
         KeyPressedStartTime := A_TickCount
@@ -291,7 +291,7 @@ Return
 ; ; $Altよりも~Altの方が動作安定する ?
 ; ;p = %A_PriorHotkey%
 ; ;MsgBox, %p%
-; ; Input, h, L1, V,{LAlt}{Alt}{RAlt}
+; ; Input, h, L1, V,{RAlt}{Alt}{RAlt}
 ; if (isDoubleKey()){
 ;       send, {Alt down}{Tab}
 ;       send, {alt up}{tab}
@@ -299,7 +299,7 @@ Return
 ;       move_corsor_to_active_centor()
 ; }
 
-LAlt Up::
+RAlt Up::
     ; altが暴発するので時間で実行しようと思ったが、
     ; LALTの実行タイミングが離した瞬間なため、難しい
     ; ALT暴発が常に付きまとうのは面倒なので２キーでの動作にする
@@ -321,7 +321,7 @@ LAlt Up::
     ;         %PressedTime%
     ;     )
     ; ToolTip, %PressedTime% 
-    If (KeyPressedUpTime- KeyPressedStartTime  < 200 and A_PriorHotKey == "~LAlt" and A_PriorKey == "LAlt")
+    If (KeyPressedUpTime- KeyPressedStartTime  < 200 and A_PriorHotKey == "~RAlt" and A_PriorKey == "RAlt")
     { 
         Send, {Escape}
         Send, {Escape}
@@ -334,39 +334,39 @@ LAlt Up::
         ; move_corsor_to_active_centor()
     }
     KeyPressedStartTime := 0
-    ; if (A_TimeSincePriorHotkey < 300 and A_PriorKey = "LAlt"){
+    ; if (A_TimeSincePriorHotkey < 300 and A_PriorKey = "RAlt"){
 Return 
 
-; ~LAlt::
+; ~RAlt::
 ;     tooltip, %A_PriorHotKey%
 ;     Return
 
 
-~LAlt & w:: 
+~RAlt & w:: 
     ; Send {Alt Down}{Tab}{Alt Up}
     ; Sleep, 100
     ; Send, {Alt Up}
     ; Sleep, 100
     ; move_corsor_to_active_centor()
-    Send {LAlt Down}{Tab}
+    Send {RAlt Down}{Tab}
     ; Sleep, 100
     ; move_corsor_to_active_centor()
 Return
-; LAlt & w:: 
+; RAlt & w:: 
 ; SetKeyDelay -1   ; 置換先がマウスの場合は SetMouseDelayになる
 ; Send {Blind}{AltTab DownTemp}  ; "DownTemp"は"Down"に似ているが押下中はキーリピートを送る
 ; return
 
 
 
-; LAlt & w up:: 
+; RAlt & w up:: 
 ; SetKeyDelay -1  ; PressDurationパラメタを指定しない理由は後述
 ; Send {Blind}{AltTab Up}
 ; return
 ; $Altよりも~Altの方が動作安定する ?
 ;p = %A_PriorHotkey%
 ;MsgBox, %p%
-; Input, h, L1, V,{LAlt}{Alt}{RAlt}
+; Input, h, L1, V,{RAlt}{Alt}{RAlt}
 ;    Send, {AltTabAndMenu} 
 ; if (isDoubleKey()){
 ;      send, {AltTabMenu}

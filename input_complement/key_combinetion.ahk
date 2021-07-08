@@ -206,7 +206,10 @@ $+^h::
 Return 
 
 $i::
-if (isPressedKeyWithSemicolon()) {
+if (isSecondColon()){
+    ActivateWindowByProcess("intellij") 
+    move_corsor_to_active_centor()
+} else if (isPressedKeyWithSemicolon()) {
     Send, |
 } else  {
     Send, {Blind}i

@@ -90,8 +90,8 @@ optionfunc(){
         winget, processname, processname, a
         ifinstring, processname , vrchat.exe
                 {
-                send, {alt down}{tab}
-                send, {alt up}{tab}
+                send, {ralt down}{tab}
+                send, {ralt up}{tab}
                 }
          ifinstring, processname , umamusume.exe
                 {
