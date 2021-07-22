@@ -54,8 +54,12 @@ SetWorkingDir, %A_ScriptDir%
 ; #Include, %A_ScriptDir%\at_main.ahk
 #IfWinNotActive ahk_class UnityWndClass
 
+; ■ AltのOne Shot Modifier実装(Alt and Esc)
+#Include, %A_ScriptDir%\src\AltOneshot.ahk
+
 ; ■ 変換 + キー -> テキスト操作のホットキー
 #Include, %A_ScriptDir%\src\Henkan.ahk
+
 ; ■ セミコロン + キー -> 記号キーを入力
 #Include, %A_ScriptDir%\src\Alphabets.ahk
 
