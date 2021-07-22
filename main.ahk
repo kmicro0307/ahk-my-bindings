@@ -22,10 +22,10 @@ SetWorkingDir, %A_ScriptDir%
 ; -----------------------------------------
 
 ; ■ カーソルの位置移動をする
-#Include, %A_ScriptDir%\alt\CursorPosManager.ahk
+#Include, %A_ScriptDir%\src\AltCursorPosManager.ahk
 
 ; ■ ウィンドウの位置移動をする
-#include, %A_ScriptDir%\alt\MoveActiveWindow.ahk 
+#include, %A_ScriptDir%\src\AltMoveActiveWindow.ahk 
 
 ; -----------------------------------------
 ; キーの単純な置き換え
@@ -41,32 +41,32 @@ SetWorkingDir, %A_ScriptDir%
 
 ; ■ SpaceのOne Shot Modifier実装 (Shift and Space)
 ; #Include, %A_ScriptDir%\sands_keymap.ahk
-#Include, %A_ScriptDir%\oneshot\ShiftSpaceOneshot.ahk
+#Include, %A_ScriptDir%\src\SpaceOneshot.ahk
 
 ; ■ CtrlのOne Shot Modifier実装 (Ctrl and Muhenkan)
-#Include, %A_ScriptDir%\oneshot\CtrlImeOneshot.ahk
+#Include, %A_ScriptDir%\src\CtrlOneshot.ahk
 ; #Include, %A_ScriptDir%\henkan_ctrl_main_v2.ahk
 
 ; ■ セミコロンのOne Shot Modifier実装 (ModForSymbol and Semicolon)
-#Include, %A_ScriptDir%\oneshot\SemiColonMain.ahk
+#Include, %A_ScriptDir%\src\SemiColonOneshot.ahk
 
 ; ■ @のOne Shot Modifier実装 (ModForNumber and @)
 ; #Include, %A_ScriptDir%\at_main.ahk
 #IfWinNotActive ahk_class UnityWndClass
 
 ; ■ 変換 + キー -> テキスト操作のホットキー
-#Include, %A_ScriptDir%\henkan\Henkan.ahk
+#Include, %A_ScriptDir%\src\Henkan.ahk
 ; ■ セミコロン + キー -> 記号キーを入力
-#Include, %A_ScriptDir%\Alphabets.ahk
+#Include, %A_ScriptDir%\src\Alphabets.ahk
 
 ; ■ 変換キーのOne Shot Modifier実装 (ModForText and Henkan)
-#Include, %A_ScriptDir%\oneshot\HenkanEnterOneshot.ahk
+#Include, %A_ScriptDir%\src\HenkanOneshot.ahk
 
 ; -----------------------------------------
 ; 大文字記号文字の自動半角化コード
 ; -----------------------------------------
 
-#Include, %A_ScriptDir%\Symbols.ahk
+#Include, %A_ScriptDir%\src\Symbols.ahk
 
 ; -----------------------------------------
 ; ソースコードのリロード
@@ -90,9 +90,8 @@ return
 
 ; ■ VRChat上で一部キー入力を無効にする
 #IfWinActive ahk_class UnityWndClass 
-#Include, %A_ScriptDir%\WASDForVRC.ahk
+#Include, %A_ScriptDir%\src\WASDForVRC.ahk
 
 ; ■ タスクビューでのhjklキーバインド 
 #IfWinActive ahk_class MultitaskingViewFrame
-#Include,  %A_ScriptDir%\alt\key_binding_alttab.ahk
-
+#Include,  %A_ScriptDir%\src\AltTabMover.ahk
