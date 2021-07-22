@@ -41,10 +41,10 @@ SetWorkingDir, %A_ScriptDir%
 
 ; ■ SpaceのOne Shot Modifier実装 (Shift and Space)
 ; #Include, %A_ScriptDir%\sands_keymap.ahk
-#Include, %A_ScriptDir%\sands_main_refine.ahk
+#Include, %A_ScriptDir%\ShiftSpaceOneshot.ahk
 
 ; ■ CtrlのOne Shot Modifier実装 (Ctrl and Muhenkan)
-#Include, %A_ScriptDir%\ctrlup_ime.ahk
+#Include, %A_ScriptDir%\CtrlImeOneshot.ahk
 ; #Include, %A_ScriptDir%\henkan_ctrl_main_v2.ahk
 ; TODO セミコロンと変換はOSMと実装のタイプが実際には異なるので区分を明確に分ける
 
@@ -59,7 +59,7 @@ SetWorkingDir, %A_ScriptDir%
 #Include, %A_ScriptDir%\key_combinetion.ahk
 
 ; ■ 変換キーのOne Shot Modifier実装 (ModForText and Henkan)
-#Include, %A_ScriptDir%\keymap_auto_eisuu.ahk
+#Include, %A_ScriptDir%\HenkanEnterOneshot.ahk
 
 ; -----------------------------------------
 ; 大文字記号文字の自動半角化コード
