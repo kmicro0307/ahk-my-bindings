@@ -22,10 +22,10 @@ SetWorkingDir, %A_ScriptDir%
 ; -----------------------------------------
 
 ; ■ カーソルの位置移動をする
-#Include, %A_ScriptDir%\cursor_pos_manager.ahk
+#Include, %A_ScriptDir%\CursorPosManager.ahk
 
 ; ■ ウィンドウの位置移動をする
-#include, %A_ScriptDir%\move_active_window.ahk 
+#include, %A_ScriptDir%\MoveActiveWindow.ahk 
 
 ; -----------------------------------------
 ; キーの単純な置き換え
@@ -49,14 +49,14 @@ SetWorkingDir, %A_ScriptDir%
 ; TODO セミコロンと変換はOSMと実装のタイプが実際には異なるので区分を明確に分ける
 
 ; ■ セミコロンのOne Shot Modifier実装 (ModForSymbol and Semicolon)
-#Include, %A_ScriptDir%\semicolon_main.ahk
+#Include, %A_ScriptDir%\SemiColonMain.ahk
 
 ; ■ @のOne Shot Modifier実装 (ModForNumber and @)
 ; #Include, %A_ScriptDir%\at_main.ahk
 #IfWinNotActive ahk_class UnityWndClass
 
 ; ■ セミコロン + キー -> 記号キーを入力
-#Include, %A_ScriptDir%\key_combinetion.ahk
+#Include, %A_ScriptDir%\Alphabets.ahk
 
 ; ■ 変換キーのOne Shot Modifier実装 (ModForText and Henkan)
 #Include, %A_ScriptDir%\HenkanEnterOneshot.ahk
@@ -65,7 +65,7 @@ SetWorkingDir, %A_ScriptDir%
 ; 大文字記号文字の自動半角化コード
 ; -----------------------------------------
 
-#Include, %A_ScriptDir%\auto_confirm.ahk
+#Include, %A_ScriptDir%\Symbols.ahk
 
 ; -----------------------------------------
 ; ソースコードのリロード
