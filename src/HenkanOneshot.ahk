@@ -44,8 +44,15 @@ vk1C up::
   PressedTime := KeyPressedUpTime-KeyPressedStartTime
   ; 直前のキーが変換であるかを判定する
   ; 前回のキーが変換だった場合，PriorKeyは""になる
+  ; tooltip, %A_PriorHotkey%/n%A_PriorKey%
+  If (KeyPresseUpTime- KeyPressedStartTime  < 200 and A_PriorHotkey="*Space Up"and A_PriorKey== "")
+  {  
+    ; Send, {vk1C}
+    ; Send, {Blind}{vkF3}
+    Send, {Blind}{Enter}
+  }
   If (KeyPresseUpTime- KeyPressedStartTime  < 200 and A_PriorHotkey="*vk1C"and A_PriorKey== "")
-  { 
+  {  
     ; Send, {vk1C}
     ; Send, {Blind}{vkF3}
     Send, {Blind}{Enter}
