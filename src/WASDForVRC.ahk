@@ -8,3 +8,9 @@ $a::a
 $s::s
 $d::d
 $Space::Space
+RAlt::
+    Send, {Esc Down}
+    Sleep, 50
+    Send, {Esc Up}
+    Return
+
