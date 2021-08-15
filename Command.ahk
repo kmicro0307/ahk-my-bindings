@@ -115,6 +115,7 @@ activatefunc(x, y)
         mousegetpos,x,y,hwnd,ctrl,3
         wingettitle, title, ahk_id %hwnd%
         winactivate, ahk_id %hwnd%
+        ReleaseModifiers()
         ; activatepopup()
         ; flashwindow()
 }
