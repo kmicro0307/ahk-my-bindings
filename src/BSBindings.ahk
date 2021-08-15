@@ -11,15 +11,15 @@ global keymap_move_len := {"!h":{x:100, y:0, f:"w"}
     ,"!+l":{x:-100, y:0,f:"x"}
     ,"vk1d & z":"l"}
 
-global keymap_value_dict := {"~ralt & d":{x:1355, y:653}
-    ,"~ralt & s":{x:355, y:653}
-    ,"~ralt & f":{x:2444, y:588}
-    ,"~ralt & v":{x:2530, y:1200}
-    ,"~ralt & x":{x:389, y:1530}
-    ,"~ralt & c":{x:1530, y:1500}
-    ,"~ralt & a":{x:-540, y:394}
-    ,"~ralt & z":{x:-540, y:1254}
-    ,"~ralt & g":{x:3200, y:500}}
+global keymap_value_dict_a := {"bs & d":{x:1355, y:653}
+    ,"bs & s":{x:355, y:653}
+    ,"bs & f":{x:2444, y:588}
+    ,"bs & v":{x:2530, y:1200}
+    ,"bs & x":{x:389, y:1530}
+    ,"bs & c":{x:1530, y:1500}
+    ,"bs & a":{x:-540, y:394}
+    ,"bs & z":{x:-540, y:1254}
+    ,"bs & g":{x:3200, y:500}}
 ; for hotkey, value in keymap_value_dict 
 ;     create_hotkey(hotkey,value)
 
@@ -30,17 +30,26 @@ global keymap_value_dict := {"~ralt & d":{x:1355, y:653}
 ; normal -> lalt h
 
 
-
-~RAlt & a::
-~RAlt & s::
-~RAlt & d::
-~RAlt & f::
-~RAlt & g::
-~RAlt & z::
-~RAlt & x::
-~RAlt & c::
-~RAlt & v::
+BS & a::
+BS & s::
+BS & d::
+BS & f::
+BS & g::
+BS & z::
+BS & x::
+BS & c::
+BS & v::
 {
+
+global keymap_value_dict_a := {"bs & d":{x:1355, y:653}
+    ,"bs & s":{x:355, y:653}
+    ,"bs & f":{x:2444, y:588}
+    ,"bs & v":{x:2530, y:1200}
+    ,"bs & x":{x:389, y:1530}
+    ,"bs & c":{x:1530, y:1500}
+    ,"bs & a":{x:-540, y:394}
+    ,"bs & z":{x:-540, y:1254}
+    ,"bs & g":{x:3200, y:500}}
     ; ToolTip, %A_PriorHotKey% 
     sleep, 10
     if (GetKeyState("Shift")) 
@@ -51,8 +60,8 @@ global keymap_value_dict := {"~ralt & d":{x:1355, y:653}
     else
     {
         a_hotkey := A_ThisHotkey 
-        x := keymap_value_dict[a_hotkey]["x"]
-        y := keymap_value_dict[a_hotkey]["y"]
+        x := keymap_value_dict_a[a_hotkey]["x"]
+        y := keymap_value_dict_a[a_hotkey]["y"]
         ; hwnd := getWindowHandlerAtPosition(x, y)
         ; wingettitle, title, ahk_id %hwnd%
         ; winactivate, ahk_id %hwnd%
@@ -63,5 +72,14 @@ global keymap_value_dict := {"~ralt & d":{x:1355, y:653}
     Return
 }
 
-BS & a::
-    Send, test
+^BS::
+    Send, {BackSpace}
+     return
+
++BS::
+    Send, {Blind}{BS}
+     return
+ 
+!BS::
+    Send, {Blind}{BS}
+     return

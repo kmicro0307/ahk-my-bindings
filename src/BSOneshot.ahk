@@ -9,16 +9,6 @@
 ;   変換のホットキー，shiftと一緒に動作してほしいキーとそうでないキーが有る
 ;   してほしくない場合は内部で明示的にUpにする
 
-#SingleInstance, Force
-SendMode Input
-SetWorkingDir, %A_ScriptDir%
-#NoEnv  ; Recommended for performance and compatibility with future AutoHotkey releases.
-; #Warn  ; Enable warnings to assist with detecting common errors.
-SendMode Input  ; Recommended for new scripts due to its superior speed and reliability.
-SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
-#SingleInstance force
-#InstallKeybdHook
-#UseHook
 
 ; =========================
 ; 【概要】
@@ -30,15 +20,13 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 ; -----------------------------------------
 
 KeyPressedStartTime := 0
-
-$BackSpace::
-  ; tooltip, %KeyPressedStartTime%
+~Backspace::
   if ( KeyPressedStartTime = 0 ){
     KeyPressedStartTime := A_TickCount
   }
 Return
 
-BackSpace up::                       
+Backspace up::                       
   ; Send, % (A_TimeSincePriorHotkey < 1000 ? "{vk1C}":"")
   KeyPresseUpTime := A_TickCount
   PressedTime := KeyPressedUpTime-KeyPressedStartTime
@@ -51,3 +39,4 @@ BackSpace up::
   }
   KeyPressedStartTime := 0
   return
+
