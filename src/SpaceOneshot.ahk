@@ -17,27 +17,29 @@
 
 #InstallKeybdHook
 #UseHook
-SpacePressedStartTime = 0
 *Space::
   ; 以前はSendだったが、Sendだと`+キー`が発火しなかったので、 Sendに
   ; 2021-05-13 文字入力時に変換モードをオフにする
   conv_mode := IME_GetConverting()
   if (conv_mode == 2){
-    Send, {Space}
+    Send, {Blind}{Space}
     return
   }
-  Send,  {LShift Down}
+
+  if (SpacePressedStartTime = "" ){
+    SpacePressedStartTime := 0 
+  }
   if (SpacePressedStartTime = 0 ){
+    Send,  {RShift Down}
     SpacePressedStartTime := A_TickCount
-}
+  }
 Return
 
 *Space Up:: 
   ;ToolTip, %A_PriorKey% 
-  SendInput {LShift Up}
+  SendInput {RShift Up}
   KeyPressedUpTime := A_TickCount
   PressedTime := KeyPressedUpTime-KeyPressedStartTime
-  ; tooltip, %PressedTime%
   ;SpaceをPriorKeyで入力判定，Alt SpaceやCtrl Spaceの実装を考えたとき，Spaceは修飾キーより後に入力されるため，これで問題ない 
   ; tooltip, %A_PriorKey%
   If (KeyPressedUpTime - SpacePressedStartTime < 200 and A_PriorKey = "Space")
@@ -46,4 +48,3 @@ Return
   }
   SpacePressedStartTime = 0
 Return
-
