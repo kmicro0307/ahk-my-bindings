@@ -52,7 +52,7 @@ global keymap_value_dict := {"~ralt & d":{x:1355, y:653}
     }
     else
     {
-        ToolTip, %A_PriorHotKey% 
+        ; ToolTip, %A_PriorHotKey% 
         a_hotkey := A_ThisHotkey 
         x := keymap_value_dict[a_hotkey]["x"]
         y := keymap_value_dict[a_hotkey]["y"]
@@ -60,7 +60,6 @@ global keymap_value_dict := {"~ralt & d":{x:1355, y:653}
         ; wingettitle, title, ahk_id %hwnd%
         ; winactivate, ahk_id %hwnd%
         ; FlashWindow()
-        ; tooltip, %A_PriorHotkey%
         VarSetCapacity(POINT, 8, 0x00)
         NumPut(x, POINT, 0x00, "int")
         NumPut(y, POINT, 0x04, "int")
@@ -75,15 +74,14 @@ global keymap_value_dict := {"~ralt & d":{x:1355, y:653}
         ; ANCESTOR_HWND := DllCall("GetAncestor", "UInt", NEXT_HWND, "UInt", GA_ROOT:= 2)
         ; tooltip, %ANCESTOR_HWND%
 
+        MouseMove, x, y
         ; MouseGetPos, xx,yy, ow, ovc, alm
         ; getWindowHandlerAtPosition()
         ; ToolTip, %out%
         ; MouseGetPos, xx,yy, ow, ovc, alm
         ; tooltip, %ow%
         ; tooltip, %A_PriorKey%kkku
-        if (A_PriorHotkey != A_ThisHotkey){
-            move_corsor_to_active_centor()
-        }
+        ; move_corsor_to_active_centor()
         ; if (A_PriorHotkey = A_ThisHotkey){
         ;     window_array_under_cursor := GetWindowListAtPosition(x, y)
         ;     win_title := window_array_under_cursor[2]
@@ -95,12 +93,13 @@ global keymap_value_dict := {"~ralt & d":{x:1355, y:653}
 }
 
 ~RAlt & a::
+    mousegetpos,x,y,hwnd,ctrl,3
     window_array_under_cursor := GetWindowListAtPosition(x, y)
     win_title := window_array_under_cursor[2]
-    OutputDebug, %win_title%`n 
+    ; OutputDebug, %win_title%`n 
     WinActivate, %win_title%
+    mousegetpos,x,y,hwnd,ctrl,3
 Return
-
 
 ; ~RAlt & a::
 ;     sleep, 10
