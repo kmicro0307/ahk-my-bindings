@@ -35,7 +35,6 @@ global keymap_value_dict := {"~ralt & d":{x:1355, y:653}
 ; firefox -> alt w (Cycle Last Used Tabs)
 ; normal -> lalt h
 
-~RAlt & a::
 ~RAlt & s::
 ~RAlt & d::
 ~RAlt & f::
@@ -45,7 +44,7 @@ global keymap_value_dict := {"~ralt & d":{x:1355, y:653}
 ~RAlt & c::
 ~RAlt & v::
 {
-    sleep, 10
+    ; sleep, 10
     if (GetKeyState("Shift")) 
     {
             windowpositionmovefunc() 
@@ -53,6 +52,7 @@ global keymap_value_dict := {"~ralt & d":{x:1355, y:653}
     }
     else
     {
+        ToolTip, %A_PriorHotKey% 
         a_hotkey := A_ThisHotkey 
         x := keymap_value_dict[a_hotkey]["x"]
         y := keymap_value_dict[a_hotkey]["y"]
@@ -65,10 +65,12 @@ global keymap_value_dict := {"~ralt & d":{x:1355, y:653}
         NumPut(x, POINT, 0x00, "int")
         NumPut(y, POINT, 0x04, "int")
         HWND := DllCall("WindowFromPoint", "Int64", NumGet(POINT, 0x00, "int64"))
-        WinGetTitle, out, ahk_id %HWND%
         ANCESTOR_HWND := DllCall("GetAncestor", "UInt", HWND, "UInt", GA_ROOT := 2)
+
         ; ToolTip, %ANCESTOR_HWND%
-        WinGetTitle, hwnd, ahk_id %ANCESTOR_HWND%
+        WinGetTitle, win_title, ahk_id %ANCESTOR_HWND%
+        WinActivate, %win_title%
+        
         ; tooltip, %hwnd%
         ; ANCESTOR_HWND := DllCall("GetAncestor", "UInt", NEXT_HWND, "UInt", GA_ROOT:= 2)
         ; tooltip, %ANCESTOR_HWND%
@@ -78,21 +80,27 @@ global keymap_value_dict := {"~ralt & d":{x:1355, y:653}
         ; ToolTip, %out%
         ; MouseGetPos, xx,yy, ow, ovc, alm
         ; tooltip, %ow%
-        ; tooltip, %A_PriorKey%
-
-        ; ToolTip, %A_PriorHotKey% 
-        if (A_PriorHotkey = A_ThisHotkey){
-            window_array_under_cursor := GetWindowListAtPosition(x, y)
-            win_title := window_array_under_cursor[2]
-            OutputDebug, %win_title% 
+        ; tooltip, %A_PriorKey%kkku
+        if (A_PriorHotkey != A_ThisHotkey){
+            move_corsor_to_active_centor()
         }
-        activatefunc(x, y)
-        ; move_corsor_to_active_centor()
-        ; OutputDebug, X:%X%`n
-        ; OutputDebug, Y:%Y%`n
+        ; if (A_PriorHotkey = A_ThisHotkey){
+        ;     window_array_under_cursor := GetWindowListAtPosition(x, y)
+        ;     win_title := window_array_under_cursor[2]
+        ;     OutputDebug, %win_title%`n 
+        ;     WinActivate, %win_title%
+        ; }
     }
     Return
 }
+
+~RAlt & a::
+    window_array_under_cursor := GetWindowListAtPosition(x, y)
+    win_title := window_array_under_cursor[2]
+    OutputDebug, %win_title%`n 
+    WinActivate, %win_title%
+Return
+
 
 ; ~RAlt & a::
 ;     sleep, 10
