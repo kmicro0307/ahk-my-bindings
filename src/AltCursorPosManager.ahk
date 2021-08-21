@@ -35,8 +35,6 @@ global keymap_value_dict := {"~ralt & d":{x:1355, y:653}
 ; firefox -> alt w (Cycle Last Used Tabs)
 ; normal -> lalt h
 
-
-
 ~RAlt & a::
 ~RAlt & s::
 ~RAlt & d::
@@ -47,7 +45,6 @@ global keymap_value_dict := {"~ralt & d":{x:1355, y:653}
 ~RAlt & c::
 ~RAlt & v::
 {
-    ; ToolTip, %A_PriorHotKey% 
     sleep, 10
     if (GetKeyState("Shift")) 
     {
@@ -63,8 +60,36 @@ global keymap_value_dict := {"~ralt & d":{x:1355, y:653}
         ; wingettitle, title, ahk_id %hwnd%
         ; winactivate, ahk_id %hwnd%
         ; FlashWindow()
+        ; tooltip, %A_PriorHotkey%
+        VarSetCapacity(POINT, 8, 0x00)
+        NumPut(x, POINT, 0x00, "int")
+        NumPut(y, POINT, 0x04, "int")
+        HWND := DllCall("WindowFromPoint", "Int64", NumGet(POINT, 0x00, "int64"))
+        WinGetTitle, out, ahk_id %HWND%
+        ANCESTOR_HWND := DllCall("GetAncestor", "UInt", HWND, "UInt", GA_ROOT := 2)
+        ; ToolTip, %ANCESTOR_HWND%
+        WinGetTitle, hwnd, ahk_id %ANCESTOR_HWND%
+        ; tooltip, %hwnd%
+        ; ANCESTOR_HWND := DllCall("GetAncestor", "UInt", NEXT_HWND, "UInt", GA_ROOT:= 2)
+        ; tooltip, %ANCESTOR_HWND%
+
+        ; MouseGetPos, xx,yy, ow, ovc, alm
+        ; getWindowHandlerAtPosition()
+        ; ToolTip, %out%
+        ; MouseGetPos, xx,yy, ow, ovc, alm
+        ; tooltip, %ow%
+        ; tooltip, %A_PriorKey%
+
+        ; ToolTip, %A_PriorHotKey% 
+        if (A_PriorHotkey = A_ThisHotkey){
+            window_array_under_cursor := GetWindowListAtPosition(x, y)
+            win_title := window_array_under_cursor[2]
+            OutputDebug, %win_title% 
+        }
         activatefunc(x, y)
         ; move_corsor_to_active_centor()
+        ; OutputDebug, X:%X%`n
+        ; OutputDebug, Y:%Y%`n
     }
     Return
 }
