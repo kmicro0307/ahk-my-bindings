@@ -63,7 +63,8 @@ SetWorkingDir, %A_ScriptDir%
 ~vk1C & i::Send,{Blind}{vk1C}
 ~vk1C & d::Send,{Blind}{End}+{Home}{BS}
 ;~vk1C & d:: Send,{Blind}{BackSpace}
-; ~vk1C & w::Send,{Blind}^+{NumpadLeft}{Delete}     ; "vk1C & w"-> emacsの"Ctrl w" は消える範囲が想像しづらいので没かなー
+~vk1C & w::Send,{Blind}^+{NumpadLeft}{Delete}
+
 ~vk1C & r::Send,{Blind}{End}+{Home}^c
 ~vk1C & e::Send,{Blind}{End}+{Home}^x
 ~vk1C & s::Send,{Blind}{home}+{End}
