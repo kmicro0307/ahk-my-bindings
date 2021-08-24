@@ -166,7 +166,12 @@ if (isActiveProcess("Obsidian") && isSecondKeyAfterCtrlJ() && CtrlPriorHotkey= "
     ; 以下書かないとctrl j が CtrlPriorHotkeyのままになってキー入力がされない
     CtrlPriorHotkey := "^g"
    Return
-}else if (isPressedKeyWithSemicolon()) {
+} else if (isSecondColon()) {
+    ActivateWindowByProcess("Chrome")
+    move_corsor_to_active_centor()
+    SemicolonPriorHotkey := "g"
+    SemicolonPressedStartTime := 0
+} else if (isPressedKeyWithSemicolon()) {
     ; Send, {asc 0037}
     Send, `%
 } else  {
@@ -296,6 +301,12 @@ if (isPressedKeyWithSemicolon()) {
 Return  
 
 $r::
+if (isSecondColon()){
+    ActivateWindowByProcess("vscode") 
+    move_corsor_to_active_centor()
+    SemicolonPriorHotkey := "r"
+    SemicolonPressedStartTime := 0
+}
 if (isPressedKeyWithSemicolon()) {
     Send, '
 } else if (isPressedKeyWithAt()) {
@@ -406,7 +417,12 @@ Return
 ; #IfWinNotActive ahk_class VRChat 
 
 $w::
-if (isPressedKeyWithSemicolon()) {
+if (isSecondColon()){
+    ActivateWindowByProcess("obsidian") 
+    move_corsor_to_active_centor()
+    SemicolonPriorHotkey := "w"
+    SemicolonPressedStartTime := 0
+} else if (isPressedKeyWithSemicolon()) {
     Send, ?
 } else if (isPressedKeyWithAt()) {
 Send, 1
@@ -499,3 +515,4 @@ if (isPressedKeyWithSemicolon()) {
     Send, {Blind}4
 }
 Return  
+
