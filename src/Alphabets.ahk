@@ -3,7 +3,8 @@
 
 $a::
 if isSecondColon(){
-    Send, {SC027}
+    ActivateWindowByProcess("terminal") 
+    move_corsor_to_active_centor()
     SemicolonPriorHotkey := "a"
     SemicolonPressedStartTime := 0
 } else if (isPressedKeyWithSemicolon()) {
@@ -87,7 +88,8 @@ if (isActiveProcess("tablacus") && isSecondKeyAfterCtrlJ() && CtrlPriorHotkey = 
     Return
 ;} else if (isSecondKeyAfterAltJ()){
 } else if (isSecondColon()){
-    ActivateWindowByProcess("tablacus") 
+    ActivateWindowByProcess("vscode") 
+    move_corsor_to_active_centor()
     SemicolonPriorHotkey := "e"
     SemicolonPressedStartTime := 0
     Return
@@ -228,7 +230,8 @@ if (isActiveProcess("Obsidian")  && isSecondKeyAfterCtrlJ() && A_PriorKey = "j")
     CtrlPriorHotkey := "j"
     Send, j
 } else if (isSecondColon()){
-    Send, {SC027}
+    ActivateWindowByProcess("intellij") 
+    move_corsor_to_active_centor()
 } else if (isPressedKeyWithSemicolon()) {
     Send, {blind}(
 } else  {
@@ -317,7 +320,10 @@ if (isPressedKeyWithSemicolon()) {
 Return  
 
 $s::
-if (isPressedKeyWithSemicolon()) {
+if (isSecondColon()){
+    ActivateWindowByProcess("chrome") 
+    move_corsor_to_active_centor()
+} else if (isPressedKeyWithSemicolon()) {
     Send, -
 } else if (isPressedKeyWithAt()) {
     Send, 4
