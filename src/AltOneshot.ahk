@@ -3,13 +3,11 @@ SendMode Input
 SetWorkingDir, %A_ScriptDir%
 
 global KeyPressedStartTime := 0
-~RAlt::
-    Send, {RAlt Down}
+RAlt::
     ; ToolTip, %KeyPressedStartTime% 
     if ( KeyPressedStartTime = 0 ){
         KeyPressedStartTime := A_TickCount
     ; 不具合あったらDownTempも検討する
-    ;~で定義されているため，sendは要らない
     ;Send {Blind}{Ctrl Down}
     }
 Return
@@ -24,7 +22,15 @@ Return
 ;       move_corsor_to_active_centor()
 ; }
 
-Alt Up::
++RAlt Up::
+        ReleaseModifiers()
+    return
+
+<!RAlt Up::
+        ReleaseModifiers()
+    return
+
+RAlt Up::
     ; altが暴発するので時間で実行しようと思ったが、
     ; LALTの実行タイミングが離した瞬間なため、難しい
     ; ALT暴発が常に付きまとうのは面倒なので２キーでの動作にする
@@ -46,9 +52,8 @@ Alt Up::
     ;         %PressedTime%
     ;     )
     ; ToolTip, %PressedTime% 
-    If (KeyPressedUpTime- KeyPressedStartTime  < 200 and A_PriorHotKey == "~RAlt" and A_PriorKey == "RAlt")
+    If (KeyPressedUpTime- KeyPressedStartTime  < 200 and A_PriorHotKey == "RAlt" and A_PriorKey == "RAlt")
     { 
-        Send, {Escape}
         Send, {Escape}
         IME_SET(0)
         ; Send {Alt Down}{Tab}{Alt Up}
