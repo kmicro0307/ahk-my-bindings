@@ -107,8 +107,6 @@ return
 #IfWinActive ahk_class MultitaskingViewFrame
 #Include,  %A_ScriptDir%\src\AltTabMover.ahk
 
-#If IME_GetConverting()==2
-#Include,  %A_ScriptDir%\src\ConvertingMode.ahk
 
 
  
