@@ -13,4 +13,3 @@ RAlt::
     Sleep, 50
     Send, {Esc Up}
     Return
-

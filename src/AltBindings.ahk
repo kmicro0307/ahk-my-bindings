@@ -169,7 +169,7 @@ Return
 ; RAlt & u::Send,^+{Tab}
 
 ; zoom in セミコロンは２キーバインドのため使えないので
-RAlt & q:: Send, ^;
+; RAlt & q:: Send, ^;
 ; RAlt & h:: Send, +!{Left}
 ; RAlt & l:: Send, +!{Right}
 ; RAlt & .:: Send, !+l
@@ -219,21 +219,14 @@ isDoubleKey() {
 ;     Return
 
 
-; ~RAlt & w:: 
-    ; Send {Alt Down}{Tab}{Alt Up}
-    ; Sleep, 100
-    ; Send, {Alt Up}
-    ; Sleep, 100
-    ; move_corsor_to_active_centor()
-    ; Send {RAlt Down}{Tab}
-    ; Sleep, 100
-    ; move_corsor_to_active_centor()
-; Return
+~RAlt & w:: 
+    Send {RAlt Down}{Tab}
+Return
 ; RAlt & w:: 
-; SetKeyDelay -1   ; 置換先がマウスの場合は SetMouseDelayになる
-; Send {Blind}{AltTab DownTemp}  ; "DownTemp"は"Down"に似ているが押下中はキーリピートを送る
+;     ; SetKeyDelay -1   ; 置換先がマウスの場合は SetMouseDelayになる
+;     ; tooltip, test
+;     Send {Blind}{AltTab DownTemp}  ; "DownTemp"は"Down"に似ているが押下中はキーリピートを送る
 ; return
-
 
 ; RAlt & w up:: 
 ; SetKeyDelay -1  ; PressDurationパラメタを指定しない理由は後述

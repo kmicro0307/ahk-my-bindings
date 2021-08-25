@@ -45,6 +45,7 @@ KeyPressedStartTime = 0
      IME_SET(0) 
     ;  Send, {Enter}
      ; 以下意味有るか不明 おまじない
+    ReleaseModifiers()
     Send, {Ctrl Up}
     }
     KeyPressedStartTime := 0
