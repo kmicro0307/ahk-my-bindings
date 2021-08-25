@@ -25,6 +25,10 @@
     Send, {Blind}{Space}
     return
   }
+  if (GetKeyState(";", "P")){
+    Send, {Space}
+      return
+  }
 
   if (SpacePressedStartTime = "" ){
     SpacePressedStartTime := 0 
