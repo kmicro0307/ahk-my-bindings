@@ -88,15 +88,10 @@ move_corsor_to_active_centor(){
 
 optionfunc(){
         winget, processname, processname, a
-        ifinstring, processname , vrchat.exe
                 {
-                send, {ralt down}{tab}
-                send, {ralt up}{tab}
-                }
-         ifinstring, processname , umamusume.exe
-                {
-                send, {alt down}{tab}
-                send, {alt up}{tab}
+                    ; WinActivate, ahk_class WorkerW
+                ; send, {ralt down}{tab}
+                ; send, {ralt up}{tab}
                 }
         }
 
@@ -165,6 +160,33 @@ SendSnippet(keys) {
     modifiers_up := GetModifiersUp()
     modifiers_down := GetModifiersDown()
     Send, %modifiers_up%%keys%%modifiers_down%
+}
+
+GetWindowListAtPosition(x, y){
+    window_array_under_cursor := []
+    WinGet, id, List,
+    Loop, %id%
+    {
+        this_ID := id%A_Index%
+        ; WinGetTitle, Out, ahk_id %this_ID% 
+        WinGetPos, px_left, py_left, Width, Height, ahk_id %this_ID%
+        px_right := px_left+Width
+        py_right := py_left+Height
+
+        If  (px_left<x and x<px_right)  ; Use Window Spy to find the exact position.
+        {
+            ; OutputDebug, %this_ID%`n
+            WinGetTitle, Out, ahk_id %this_ID% 
+            if (Out = ""){
+                continue
+            }
+            if (Out = "NVIDIA GeForce Overlay" or Out = "Program Manager"){
+                Continue
+            }
+            window_array_under_cursor.Insert(Out)
+        }
+    }
+    return window_array_under_cursor
 }
 
 ; SandS実装のためのコマンド
