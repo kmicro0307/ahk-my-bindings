@@ -29,34 +29,56 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 ; 変換を修飾キーとして扱うための準備
 ; -----------------------------------------
 
-KeyPressedStartTime := 0
+Vk1CKeyPressedStartTime := 0
 
 *vk1C::
-  ; tooltip, %KeyPressedStartTime%
-  if ( KeyPressedStartTime = 0 ){
-    KeyPressedStartTime := A_TickCount
+  conv_mode := IME_GetConverting()
+  if (conv_mode == 2){
+    Send, {Enter}
+    global enterSended := True
+    return
+  }
+  ; tooltip, %Vk1CKeyPressedStartTime%
+  if ( Vk1CKeyPressedStartTime = 0 ){
+    Vk1CKeyPressedStartTime := A_TickCount
   }
 Return
 
 vk1C up::                       
   ; Send, % (A_TimeSincePriorHotkey < 1000 ? "{vk1C}":"")
-  KeyPresseUpTime := A_TickCount
-  PressedTime := KeyPressedUpTime-KeyPressedStartTime
+  Vk1CKeyPresseUpTime := A_TickCount
+  PressedTime := KeyPressedUpTime-Vk1CKeyPressedStartTime
   ; 直前のキーが変換であるかを判定する
   ; 前回のキーが変換だった場合，PriorKeyは""になる
   ; tooltip, %A_PriorHotkey%/n%A_PriorKey%
-  If (KeyPresseUpTime- KeyPressedStartTime  < 200 and A_PriorHotkey="*Space Up"and A_PriorKey== "")
+  OutputDebug, PriorHotkey %A_PriorHotkey%`n
+  OutputDebug, Prior %A_Priorkey%`n
+  OutputDebug, Start %Vk1CKeyPressedStartTime%`n
+  OutputDebug, Uptime %KeyPressedUpTime%`n
+  If (Vk1CKeyPresseUpTime- Vk1CKeyPressedStartTime  < 200 and A_PriorHotkey="*Space Up"and A_PriorKey== "")
   {  
     ; Send, {vk1C}
     ; Send, {Blind}{vkF3}
     Send, {Blind}{Enter}
   }
-  If (KeyPresseUpTime- KeyPressedStartTime  < 200 and A_PriorHotkey="*vk1C"and A_PriorKey== "")
+  If (Vk1CKeyPresseUpTime- Vk1CKeyPressedStartTime  < 200 and A_PriorHotkey="~Ctrl"and A_PriorKey== "")
+  {  
+    Send, {Blind}{Enter}
+  }
+  If (Vk1CKeyPresseUpTime- Vk1CKeyPressedStartTime  < 200 and A_PriorHotkey="~Ctrl Up"and A_PriorKey== "")
+  {  
+    OutputDebug, fire
+    ; sleep, 10
+    Send, {Ctrl Down}{Enter}{CtrlUp}
+  }
+  If (Vk1CKeyPresseUpTime- Vk1CKeyPressedStartTime  < 200 and A_PriorHotkey="*vk1C"and A_PriorKey== "" and not enterSended)
   {  
     ; Send, {vk1C}
     ; Send, {Blind}{vkF3}
     Send, {Blind}{Enter}
   }
+
   ; Send,{vk1C}                
-  KeyPressedStartTime := 0
+  Vk1CKeyPressedStartTime := 0
+  global enterSended = False
   return
