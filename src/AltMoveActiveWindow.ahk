@@ -75,6 +75,7 @@ WindowPositionMoveFunc()
         ,"~ralt & x":"B"
         ,"~ralt & c":"B"
         ,"~ralt & a":"L"
+        ,"~ralt & g":"R"
     ,"~ralt & z":"L"}
     hotkey = %A_ThisHotkey%
     pos := keymap_positon_dict[hotkey] 
@@ -85,6 +86,7 @@ WindowPositionMoveFunc()
     keymap_position_XY := {"~RAlt & d":{"X":900,"Y":0}
     ,"~RAlt & s":{"X":0,"Y":0}
     ,"~RAlt & f":{"X":monitor.left,"Y":0}
+    ,"~RAlt & g":{"X":monitor.left+940,"Y":0}
     ,"~RAlt & v":{"X":monitor.left,"Y":monitor.height/2}
     ,"~RAlt & x":{"X":0,"Y":monitor.bottom}
     ,"~RAlt & c":{"X":monitor.right/2,"Y":monitor.m}
@@ -93,7 +95,8 @@ WindowPositionMoveFunc()
 
         keymap_resize_XY := {"~RAlt & d":{"X":1020,"Y":1080 -40}
     ,"~RAlt & s":{"X":960,"Y": 1080 -40}
-    ,"~RAlt & f":{"X":940,"Y":monitor.height}
+    ,"~RAlt & f":{"X":960,"Y": 1080 - 40}
+    ,"~RAlt & g":{"X":940,"Y": 1080 - 40}
     ,"~RAlt & v":{"X":monitor.width,"Y":monitor.height/2}
     ,"~RAlt & x":{"X":monitor.width/2,"Y": monitor.height -30}
     ,"~RAlt & c":{"X":monitor.width/2,"Y":monitor.height -30}
@@ -115,7 +118,6 @@ WindowPositionMoveFunc()
     ;etc 縦2横3のグリッドなら
     ;123
     ;456 というふうにモニターを考える
-
     ; global keymap_positon_dict := {"#d":"U"
     ;     ,"#s":"U"
     ;     ,"#f":"R"
