@@ -23,14 +23,14 @@ SetWorkingDir, %A_ScriptDir%
 
 ; ■ カーソルの位置移動をする
 #Include, %A_ScriptDir%\src\AltCursorPosManager.ahk
-
-; ■ ウィンドウの位置移動をする
+#Include, %A_ScriptDir%\src\AltBindings.ahk
 #include, %A_ScriptDir%\src\AltMoveActiveWindow.ahk 
+#Include, %A_ScriptDir%\src\BSBindings.ahk
+; #Include, %A_ScriptDir%\src\RShiftBindings.ahk
 
 ; -----------------------------------------
 ; キーの単純な置き換え
 ; -----------------------------------------
-
 ; ■ かなローマ字，capslockの置き換え(現状使う予定はない)
 ; *vkF2:: Send, {Enter}
 ; *vkF0:: Send, {BackSpace}
@@ -42,7 +42,6 @@ SetWorkingDir, %A_ScriptDir%
 ; ■ SpaceのOne Shot Modifier実装 (Shift and Space)
 ; #Include, %A_ScriptDir%\sands_keymap.ahk
 #Include, %A_ScriptDir%\src\SpaceOneshot.ahk
-
 ; ■ CtrlのOne Shot Modifier実装 (Ctrl and Muhenkan)
 #Include, %A_ScriptDir%\src\CtrlOneshot.ahk
 ; #Include, %A_ScriptDir%\henkan_ctrl_main_v2.ahk
@@ -50,17 +49,23 @@ SetWorkingDir, %A_ScriptDir%
 ; ■ セミコロンのOne Shot Modifier実装 (ModForSymbol and Semicolon)
 #Include, %A_ScriptDir%\src\SemiColonOneshot.ahk
 
+; ■ AltのOne Shot Modifier実装(Alt and Esc)
+#Include, %A_ScriptDir%\src\LAltOneshot.ahk
+#Include, %A_ScriptDir%\src\AltOneshot.ahk
+#Include, %A_ScriptDir%\src\BSOneshot.ahk
+
+#Include, %A_ScriptDir%\src\TabOneshot.ahk
+#Include, %A_ScriptDir%\src\TabBindings.ahk
+
 ; ■ @のOne Shot Modifier実装 (ModForNumber and @)
 ; #Include, %A_ScriptDir%\at_main.ahk
 #IfWinNotActive ahk_class UnityWndClass
-
-; ■ AltのOne Shot Modifier実装(Alt and Esc)
-#Include, %A_ScriptDir%\src\AltOneshot.ahk
 
 ; ■ 変換 + キー -> テキスト操作のホットキー
 #Include, %A_ScriptDir%\src\Henkan.ahk
 
 ; ■ セミコロン + キー -> 記号キーを入力
+; #If IME_GetConverting()!=2
 #Include, %A_ScriptDir%\src\Alphabets.ahk
 
 ; ■ 変換キーのOne Shot Modifier実装 (ModForText and Henkan)
@@ -68,7 +73,7 @@ SetWorkingDir, %A_ScriptDir%
 
 ; -----------------------------------------
 ; 大文字記号文字の自動半角化コード
-; -----------------------------------------
+; ----------------------------------------
 
 #Include, %A_ScriptDir%\src\Symbols.ahk
 
@@ -83,10 +88,12 @@ return
 ; 押しっぱなしへの対策コード
 ; -----------------------------------------
 
+^+-:: Send, ^;
 *F12::
     ReleaseModifiers()
     Send, F12
 return
+
 
 ; -----------------------------------------
 ; 特定アプリケーションでのみ実行するコード
@@ -99,3 +106,9 @@ return
 ; ■ タスクビューでのhjklキーバインド 
 #IfWinActive ahk_class MultitaskingViewFrame
 #Include,  %A_ScriptDir%\src\AltTabMover.ahk
+
+#If IME_GetConverting()==2
+#Include,  %A_ScriptDir%\src\ConvertingMode.ahk
+
+
+ 
