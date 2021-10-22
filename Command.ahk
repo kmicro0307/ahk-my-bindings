@@ -200,6 +200,10 @@ GetModifiersUp() {
         modifiers = %modifiers%{Shift Up}
     If GetKeyState("Alt", "P")
         modifiers = %modifiers%{Alt Up}
+    If GetKeyState("RAlt", "P")
+        modifiers = %modifiers%{RAlt Up}
+    If GetKeyState("LAlt", "P")
+        modifiers = %modifiers%{RAlt Up}
     ; ここ副作用~
 	if (GetKeyState("Space", "P")){
 		modifiers = %modifiers%{RShift Up}

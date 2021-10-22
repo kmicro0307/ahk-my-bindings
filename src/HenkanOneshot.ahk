@@ -32,6 +32,7 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 Vk1CKeyPressedStartTime := 0
 
 *vk1C::
+  ; Send, {F21}
   conv_mode := IME_GetConverting()
   if (conv_mode == 2){
     Send, {Enter}
@@ -77,6 +78,7 @@ vk1C up::
     ; Send, {Blind}{vkF3}
     Send, {Blind}{Enter}
   }
+    OutputDebug, %enterSended%`n
 
   ; Send,{vk1C}                
   Vk1CKeyPressedStartTime := 0

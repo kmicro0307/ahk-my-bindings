@@ -2,6 +2,10 @@
 SendMode Input
 SetWorkingDir, %A_ScriptDir%
 
+
+RAlt & j::Return
+RAlt & k::Return
+
 RAlt & l::
     ; if (GetKeyState("Shift")){
     ;     if (isPressedKeyWithSemicolon()) {
@@ -148,7 +152,7 @@ Return
 ; !+u:: Send, !^u 
 
 ; !u:: Send,^+{Tab}
-; !+o:: Send, !^o 
+; !+o:: Send, !^ 
 RAlt & o::
     if (GetKeyState("Shift")){
         Send, !^o

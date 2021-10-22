@@ -12,7 +12,6 @@ SetWorkingDir, %A_ScriptDir%
 ; Return
 
 *LAlt Up::
-    tooltip, test
     Send, {F24}
     Send, {LAlt Up}
     global AltPriorHotkey := A_PriorHotkey

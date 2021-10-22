@@ -109,4 +109,4 @@ SetWorkingDir, %A_ScriptDir%
 
 ;文字削除
 ;vkF3 & x:: Send,{Blind}{BackSpace}
- 
+  

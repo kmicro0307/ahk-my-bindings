@@ -106,7 +106,3 @@ return
 ; ■ タスクビューでのhjklキーバインド 
 #IfWinActive ahk_class MultitaskingViewFrame
 #Include,  %A_ScriptDir%\src\AltTabMover.ahk
-
-
-
- 
