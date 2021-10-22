@@ -94,7 +94,11 @@ if (isActiveProcess("tablacus") && isSecondKeyAfterCtrlJ() && CtrlPriorHotkey = 
     SemicolonPressedStartTime := 0
     Return
 }
-if (isPressedKeyWithSemicolon()) {
+if (isActiveProcess("Obsidian") && isSecondKeyAfterCtrlJ() && CtrlPriorHotkey= "$^j"){
+    Send, !^+e 
+    Send, !^+e
+    CtrlPriorHotkey := "!^+e"
+} else if (isPressedKeyWithSemicolon()) {
     Send, " 
 } else if (isPressedKeyWithAt()) {
     Send, 2
@@ -110,18 +114,19 @@ if (isPressedKeyWithSemicolon()) {
     Send, {Blind}^e
 }
 Return  
-
 ; tablacus explorer → 検索
+#MaxHotkeysPerInterval 200
 $f::
 ; Tooltip, %CtrlPriorHotkey%
 if (isActiveProcess("tablacus") && isSecondKeyAfterCtrlJ() && CtrlPriorHotkey = "$^j"){
     ; ToolTip, %CtrlPriorHotkey%
     ; ToolTip, %A_PriorKey%
     ; 以下書かないとctrl j が CtrlPriorHotkeyのままになってキー入力がされない
-    Send, ^+f
+    Send, !^+f
     CtrlPriorHotkey := "^+f"
     Return
 }
+
 ;if (isSecondKeyAfterAltJ()){
 ; tooltip,%A_PriorHotkey%
 if (isSecondColon()){
@@ -133,9 +138,8 @@ if (isSecondColon()){
 } else if (isActiveProcess("Obsidian") && isSecondKeyAfterCtrlJ() && CtrlPriorHotkey = "$^j"){
     ; ToolTip, %CtrlPriorHotkey%
     ; ToolTip, %A_PriorKey%
-    ; 以下書かないとctrl j が CtrlPriorHotkeyのままになってキー入力がされない
-    Send, ^+e
-    CtrlPriorHotkey := "^+e"
+    Send, !^+f
+    CtrlPriorHotkey := "!^+f"
     Return
 } else if (isPressedKeyWithAt()) {
     Send, 6
@@ -182,7 +186,10 @@ if (isActiveProcess("Obsidian") && isSecondKeyAfterCtrlJ() && CtrlPriorHotkey= "
 Return  
 
 $h::
-if (isPressedKeyWithSemicolon()) {
+if (isActiveProcess("Obsidian") && isSecondKeyAfterCtrlJ() && CtrlPriorHotkey= "$^j"){
+    Send, !^+h
+    CtrlPriorHotkey := "!^+f"
+}else if (isPressedKeyWithSemicolon()) {
     Send, {SC027}
 } else  {
     Send, {Blind}h
