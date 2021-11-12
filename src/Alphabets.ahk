@@ -397,7 +397,7 @@ if (isPressedKeyWithSemicolon()) {
         ReleaseModifiers()
     }
 } else  {
-    Send, {Blind}+u
+    Send, {Blind}^u
 }
 Return  
 
