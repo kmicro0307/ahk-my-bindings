@@ -88,7 +88,7 @@ if (isActiveProcess("tablacus") && isSecondKeyAfterCtrlJ() && CtrlPriorHotkey = 
     Return
 ;} else if (isSecondKeyAfterAltJ()){
 } else if (isSecondColon()){
-    ActivateWindowByProcess("vscode") 
+    ActivateWindowByProcess("obsidian") 
     move_corsor_to_active_centor()
     SemicolonPriorHotkey := "e"
     SemicolonPressedStartTime := 0
@@ -387,7 +387,7 @@ $^u::
 if (isPressedKeyWithSemicolon()) {
 ; if (isSecondColon()){
     If (IME_GET() == 1){
-        IME_SET(0)  
+        IME_SET(0)
         SendSnippet(" -> ")
         ReleaseModifiers()
         IME_SET(1) 
@@ -431,7 +431,7 @@ Return
 
 $w::
 if (isSecondColon()){
-    ActivateWindowByProcess("obsidian") 
+    ActivateWindowByProcess("terminal") 
     move_corsor_to_active_centor()
     SemicolonPriorHotkey := "w"
     SemicolonPressedStartTime := 0
