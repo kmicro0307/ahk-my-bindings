@@ -263,7 +263,10 @@ if (isPressedKeyWithSemicolon()) {
 Return  
 
 $m::
-if (isPressedKeyWithSemicolon()) {
+if (isActiveProcess("Obsidian") && isSecondKeyAfterCtrlJ() && CtrlPriorHotkey= "$^j"){
+    Send, !^+m
+    CtrlPriorHotkey := "!^+m"
+} else if  (isPressedKeyWithSemicolon()) {
     Send, ~
 } else  {
     Send, {Blind}m
