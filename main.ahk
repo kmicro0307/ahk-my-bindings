@@ -9,7 +9,7 @@ SetWorkingDir, %A_ScriptDir%
 ; #HotkeyModifierTimeout 100
 
 ; -----------------------------------------
-; 汎用コード
+; 汎用コマンドのスクリプト
 ; -----------------------------------------
 
 #Include, %A_ScriptDir%\Command.ahk
@@ -28,7 +28,8 @@ SetWorkingDir, %A_ScriptDir%
 ; -----------------------------------------
 ; キーの単純な置き換え
 ; -----------------------------------------
-; ■ かなローマ字，capslockの置き換え(現状使う予定はない)
+
+; ■ かなローマ字，capslockの置き換え
 ; *vkF2:: Send, {Enter}
 ; *vkF0:: Send, {BackSpace}
 
@@ -58,47 +59,48 @@ SetWorkingDir, %A_ScriptDir%
 ; #Include, %A_ScriptDir%\at_main.ahk
 #IfWinNotActive ahk_class UnityWndClass
 
-; ■ 変換 + キー -> テキスト操作のホットキー
-#Include, %A_ScriptDir%\src\HenkanBinds.ahk
+    ; ■ 変換 + キー -> テキスト操作のバインド
+    #Include, %A_ScriptDir%\src\HenkanBinds.ahk
 
-; ■ セミコロン + キー -> 記号キーを入力
-; #If IME_GetConverting()!=2
-#Include, %A_ScriptDir%\src\MainBinds.ahk
+    ; ■ セミコロン + キー -> 記号キーを入力
+    ; #If IME_GetConverting()!=2
+    #Include, %A_ScriptDir%\src\MainBinds.ahk
 
-; ■ 変換キーのOne Shot Modifier実装 (ModForText and Henkan)
-#Include, %A_ScriptDir%\src\HenkanOneshot.ahk
+    ; ■ 変換キーのOne Shot Modifier実装 (ModForText and Henkan)
+    #Include, %A_ScriptDir%\src\HenkanOneshot.ahk
 
-; -----------------------------------------
-; 大文字記号文字の自動半角化コード
-; ----------------------------------------
+    ; -----------------------------------------
+    ; 全角文字の自動半角化スクリプト
+    ; ----------------------------------------
 
-#Include, %A_ScriptDir%\src\SymbolBinds.ahk
+    #Include, %A_ScriptDir%\src\SymbolBinds.ahk
 
-; -----------------------------------------
-; ソースコードのリロード
-; -----------------------------------------
+    ; -----------------------------------------
+    ; ソースコードのリロード
+    ; -----------------------------------------
 
-vk1C & p:: Reload
-return
+    vk1C & p:: Reload
+    return
 
-; -----------------------------------------
-; 押しっぱなしへの対策コード
-; -----------------------------------------
+    ; -----------------------------------------
+    ; 押しっぱなしへの対策スクリプト
+    ; -----------------------------------------
 
-^+-:: Send, ^;
-*F12::
-    ReleaseModifiers()
-    Send, F12
-return
+    ^+-:: Send, ^;
+    *F12::
+        ReleaseModifiers()
+        Send, F12
+    return
 
-; -----------------------------------------
-; 特定アプリケーションでのみ実行するコード
-; -----------------------------------------
+    ; -----------------------------------------
+    ; 特定アプリケーションでのみ実行するスクリプト
+    ; -----------------------------------------
 
-; ■ VRChat上で一部キー入力を無効にする
-#IfWinActive ahk_class UnityWndClass 
-#Include, %A_ScriptDir%\src\WASDForVRC.ahk
+    ; ■ タスクビューでのhjklキーバインド 
+    #IfWinActive ahk_class MultitaskingViewFrame
+        #Include, %A_ScriptDir%\src\AltTabMover.ahk
 
-; ■ タスクビューでのhjklキーバインド 
-#IfWinActive ahk_class MultitaskingViewFrame
-#Include,  %A_ScriptDir%\src\AltTabMover.ahk
+        ; ■ VRChat上で一部キー入力を無効にする
+        #IfWinActive ahk_class UnityWndClass 
+            #Include, %A_ScriptDir%\src\WASDForVRC.ahk
+

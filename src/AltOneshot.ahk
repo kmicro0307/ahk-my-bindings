@@ -1,3 +1,10 @@
+; 【概要】
+; RAltの入力をSandS風に扱うためのスクリプト
+; 【One Shot】 
+; -> ESC
+; 【Combination】 
+; -> 自作モディファイア or Alt+キー
+
 #SingleInstance, Force
 SendMode Input
 SetWorkingDir, %A_ScriptDir%
