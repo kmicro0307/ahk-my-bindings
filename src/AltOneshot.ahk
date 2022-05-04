@@ -11,16 +11,6 @@ RAlt::
         ;Send {Blind}{Ctrl Down}
     }
 Return
-; ; $Altよりも~Altの方が動作安定する ?
-; ;p = %A_PriorHotkey%
-; ;MsgBox, %p%
-; ; Input, h, L1, V,{RAlt}{Alt}{RAlt}
-; if (isDoubleKey()){
-;       send, {Alt down}{Tab}
-;       send, {alt up}{tab}
-;      Sleep, 100 
-;       move_corsor_to_active_centor()
-; }
 
 +RAlt Up::
     ReleaseModifiers()

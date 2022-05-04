@@ -35,7 +35,7 @@ Return
   { 
     IME_SET(0) 
     ;  Send, {Enter}
-    ; おまじない
+    ; おしっぱなし対策のためのおまじない
     ReleaseModifiers()
     Send, {Ctrl Up}
   }
