@@ -52,10 +52,10 @@ vk1C up::
   ; 直前のキーが変換であるかを判定する
   ; 前回のキーが変換だった場合，PriorKeyは""になる
   ; tooltip, %A_PriorHotkey%/n%A_PriorKey%
-  OutputDebug, PriorHotkey %A_PriorHotkey%`n
-  OutputDebug, Prior %A_Priorkey%`n
-  OutputDebug, Start %Vk1CKeyPressedStartTime%`n
-  OutputDebug, Uptime %KeyPressedUpTime%`n
+  ; OutputDebug, PriorHotkey %A_PriorHotkey%`n
+  ; OutputDebug, Prior %A_Priorkey%`n
+  ; OutputDebug, Start %Vk1CKeyPressedStartTime%`n
+  ; OutputDebug, Uptime %KeyPressedUpTime%`n
   If (Vk1CKeyPresseUpTime- Vk1CKeyPressedStartTime < 200 and A_PriorHotkey="*Space Up"and A_PriorKey== "")
   { 
     ; Send, {vk1C}
@@ -68,7 +68,7 @@ vk1C up::
   }
   If (Vk1CKeyPresseUpTime- Vk1CKeyPressedStartTime < 200 and A_PriorHotkey="~Ctrl Up"and A_PriorKey== "")
   { 
-    OutputDebug, fire
+    ; OutputDebug, fire
     ; sleep, 10
     Send, {Ctrl Down}{Enter}{CtrlUp}
   }
@@ -78,7 +78,7 @@ vk1C up::
     ; Send, {Blind}{vkF3}
     Send, {Blind}{Enter}
   }
-  OutputDebug, %enterSended%`n
+  ; OutputDebug, %enterSended%`n
 
   ; Send,{vk1C}                
   Vk1CKeyPressedStartTime := 0
