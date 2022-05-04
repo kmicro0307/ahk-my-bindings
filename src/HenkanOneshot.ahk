@@ -5,17 +5,17 @@
 ; -> IME ON
 ; 【Combination】 
 ; -> 自作モディファイア
-; 【memo】
+; 【Memo】
 ;   変換のホットキー，shiftと一緒に動作してほしいキーとそうでないキーが有る
 ;   してほしくない場合は内部で明示的にUpにする
 
 #SingleInstance, Force
 SendMode Input
 SetWorkingDir, %A_ScriptDir%
-#NoEnv  ; Recommended for performance and compatibility with future AutoHotkey releases.
+#NoEnv ; Recommended for performance and compatibility with future AutoHotkey releases.
 ; #Warn  ; Enable warnings to assist with detecting common errors.
-SendMode Input  ; Recommended for new scripts due to its superior speed and reliability.
-SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
+SendMode Input ; Recommended for new scripts due to its superior speed and reliability.
+SetWorkingDir %A_ScriptDir% ; Ensures a consistent starting directory.
 #SingleInstance force
 #InstallKeybdHook
 #UseHook
@@ -45,7 +45,7 @@ Vk1CKeyPressedStartTime := 0
   }
 Return
 
-vk1C up::                       
+vk1C up:: 
   ; Send, % (A_TimeSincePriorHotkey < 1000 ? "{vk1C}":"")
   Vk1CKeyPresseUpTime := A_TickCount
   PressedTime := KeyPressedUpTime-Vk1CKeyPressedStartTime
@@ -56,31 +56,31 @@ vk1C up::
   OutputDebug, Prior %A_Priorkey%`n
   OutputDebug, Start %Vk1CKeyPressedStartTime%`n
   OutputDebug, Uptime %KeyPressedUpTime%`n
-  If (Vk1CKeyPresseUpTime- Vk1CKeyPressedStartTime  < 200 and A_PriorHotkey="*Space Up"and A_PriorKey== "")
-  {  
+  If (Vk1CKeyPresseUpTime- Vk1CKeyPressedStartTime < 200 and A_PriorHotkey="*Space Up"and A_PriorKey== "")
+  { 
     ; Send, {vk1C}
     ; Send, {Blind}{vkF3}
     Send, {Blind}{Enter}
   }
-  If (Vk1CKeyPresseUpTime- Vk1CKeyPressedStartTime  < 200 and A_PriorHotkey="~Ctrl"and A_PriorKey== "")
-  {  
+  If (Vk1CKeyPresseUpTime- Vk1CKeyPressedStartTime < 200 and A_PriorHotkey="~Ctrl"and A_PriorKey== "")
+  { 
     Send, {Blind}{Enter}
   }
-  If (Vk1CKeyPresseUpTime- Vk1CKeyPressedStartTime  < 200 and A_PriorHotkey="~Ctrl Up"and A_PriorKey== "")
-  {  
+  If (Vk1CKeyPresseUpTime- Vk1CKeyPressedStartTime < 200 and A_PriorHotkey="~Ctrl Up"and A_PriorKey== "")
+  { 
     OutputDebug, fire
     ; sleep, 10
     Send, {Ctrl Down}{Enter}{CtrlUp}
   }
-  If (Vk1CKeyPresseUpTime- Vk1CKeyPressedStartTime  < 200 and A_PriorHotkey="*vk1C"and A_PriorKey== "" and not enterSended)
-  {  
+  If (Vk1CKeyPresseUpTime- Vk1CKeyPressedStartTime < 200 and A_PriorHotkey="*vk1C"and A_PriorKey== "" and not enterSended)
+  { 
     ; Send, {vk1C}
     ; Send, {Blind}{vkF3}
     Send, {Blind}{Enter}
   }
-    OutputDebug, %enterSended%`n
+  OutputDebug, %enterSended%`n
 
   ; Send,{vk1C}                
   Vk1CKeyPressedStartTime := 0
   global enterSended = False
-  return
+return

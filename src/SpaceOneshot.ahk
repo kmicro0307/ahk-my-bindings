@@ -1,8 +1,9 @@
+; 【概要】
 ; 【Oneshot】 
 ;  -> Space
 ; 【Combination】 
 ; -> Shift
-
+; 【Memo】 
 ; SandSに求められること
 ; 1. 単体動作
 ; 2. ctrl(変換)との併用
@@ -10,9 +11,9 @@
 ; 4. Ctrl Space，Alt Spceなどとの併用
 ; 5. 特に方向キー
 ; 6. キーコンビネーションのときの動作
-
+;【留意点】
 ;  SandSはCtrlと同時押しするため，ctrlup_ime.ahkとの兼ね合いを意識する必要があるか
-; 現状は大丈夫そう
+; 現状は大丈夫に見える
 ; Ctrl は~で定義されているため，常に押されていれば動く
 
 #InstallKeybdHook
@@ -26,15 +27,15 @@
     return
   }
   if (GetKeyState(";", "P")){
-    Send, {Space}
-      return
+      Send, {Space}
+    return
   }
 
   if (SpacePressedStartTime = "" ){
     SpacePressedStartTime := 0 
   }
   if (SpacePressedStartTime = 0 ){
-    Send,  {RShift Down}
+    Send, {RShift Down}
     SpacePressedStartTime := A_TickCount
   }
 Return
