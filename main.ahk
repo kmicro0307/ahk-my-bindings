@@ -1,7 +1,4 @@
 ﻿;#SingleInstance, Force
-; memo
-; upのあとに他のキーバインドが書いてあると動作が意図したとおりにならない
-; コード修正してとりあえず一つのコードで動くようになった
 ;#Include, %A_ScriptDir%\henkan_ctrl_main.ahk
 #InstallKeybdHook
 #UseHook
@@ -93,7 +90,6 @@ return
     ReleaseModifiers()
     Send, F12
 return
-
 
 ; -----------------------------------------
 ; 特定アプリケーションでのみ実行するコード
