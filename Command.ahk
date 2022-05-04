@@ -205,7 +205,6 @@ isPressedKeyWithSemicolon() {
             modifiers = %modifiers%{RAlt Up}
         If GetKeyState("LAlt", "P")
             modifiers = %modifiers%{RAlt Up}
-        ; ここ副作用
         if (GetKeyState("Space", "P")){
             modifiers = %modifiers%{RShift Up}
         }
