@@ -219,37 +219,4 @@ return (A_PriorHotKey = A_ThisHotKey and A_TimeSincePriorHotkey < 400)
 ~RAlt & w:: 
     Send {RAlt Down}{Tab}
 Return
-; RAlt & w:: 
-;     ; SetKeyDelay -1   ; 置換先がマウスの場合は SetMouseDelayになる
-;     ; tooltip, test
-;     Send {Blind}{AltTab DownTemp}  ; "DownTemp"は"Down"に似ているが押下中はキーリピートを送る
-; return
-
-; RAlt & w up:: 
-; SetKeyDelay -1  ; PressDurationパラメタを指定しない理由は後述
-; Send {Blind}{AltTab Up}
-; return
-; $Altよりも~Altの方が動作安定する ?
-;p = %A_PriorHotkey%
-;MsgBox, %p%
-; Input, h, L1, V,{RAlt}{Alt}{RAlt}
-;    Send, {AltTabAtestndMenu} 
-; if (isDoubleKey()){
-;      send, {AltTabMenu}
-;     ; send, {AltTab}
-;     ; send, {alt down}{tab}
-;     Sleep, 100 
-;     send, {Enter} 
-;     ; send, {alt up}{tab}
-;     Sleep, 100 
-;     WinGetPos, X, Y, width,height, A
-;     ; MsgBox, %X%, %Y%, %width%, %height%
-;     cursor_pos_X := X + width/2
-;     cursor_pos_Y := Y + height/2
-;     activatefunc(cursor_pos_X, cursor_pos_Y)
-;     move_corsor_to_active_centor()
-; }
-;send, {alt down}{tab}
-;send, {alt up{tab}
-; Return 
 
