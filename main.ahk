@@ -19,9 +19,7 @@ SetWorkingDir, %A_ScriptDir%
 ; -----------------------------------------
 
 ; ■ カーソルの位置移動をする
-#Include, %A_ScriptDir%\src\AltCursorPosManager.ahk
 #Include, %A_ScriptDir%\src\AltBinds.ahk
-#include, %A_ScriptDir%\src\AltMoveActiveWindow.ahk 
 #Include, %A_ScriptDir%\src\BSBinds.ahk
 ; #Include, %A_ScriptDir%\src\RShiftBindings.ahk
 
@@ -38,8 +36,8 @@ SetWorkingDir, %A_ScriptDir%
 ; -----------------------------------------
 
 ; ■ SpaceのOne Shot Modifier実装 (Shift and Space)
-; #Include, %A_ScriptDir%\sands_keymap.ahk
 #Include, %A_ScriptDir%\src\SpaceOneshot.ahk
+
 ; ■ CtrlのOne Shot Modifier実装 (Ctrl and Muhenkan)
 #Include, %A_ScriptDir%\src\CtrlOneshot.ahk
 ; #Include, %A_ScriptDir%\henkan_ctrl_main_v2.ahk
@@ -50,6 +48,7 @@ SetWorkingDir, %A_ScriptDir%
 ; ■ AltのOne Shot Modifier実装(Alt and Esc)
 #Include, %A_ScriptDir%\src\LAltOneshot.ahk
 #Include, %A_ScriptDir%\src\AltOneshot.ahk
+
 #Include, %A_ScriptDir%\src\BSOneshot.ahk
 
 #Include, %A_ScriptDir%\src\TabOneshot.ahk
