@@ -2,34 +2,6 @@
 SendMode Input
 SetWorkingDir, %A_ScriptDir%
 
-global keymap_move_len := {"!h":{x:100, y:0, f:"w"}
-    ,"!+h":{x:-100, y:0, f:"w"}
-    ,"!j":{x:0, y:100,f:"x"}
-    ,"!+j":{x:0, y:-100,f:"w"}
-    ,"!k":{x:0, y:100,f:"w"}
-    ,"!+k":{x:0, y:-100,f:"w"}
-    ,"!+l":{x:-100, y:0,f:"x"}
-    ,"vk1d & z":"l"}
-
-global keymap_value_dict_a := {"bs & d":{x:1355, y:653}
-    ,"bs & s":{x:355, y:653}
-    ,"bs & f":{x:2444, y:588}
-    ,"bs & v":{x:2530, y:1200}
-    ,"bs & x":{x:389, y:1530}
-    ,"bs & c":{x:1530, y:1500}
-    ,"bs & a":{x:-540, y:394}
-    ,"bs & z":{x:-540, y:1254}
-    ,"bs & g":{x:3200, y:500}}
-; for hotkey, value in keymap_value_dict 
-;     create_hotkey(hotkey,value)
-
-; ~での実装，支配度が高い
-; Alt Ctrl dなどの実行の際にもこのキーは発火する，条件分岐で除外すれば問題ないと思うが
-
-; firefox -> alt w (Cycle Last Used Tabs)
-; normal -> lalt h
-
-
 ; BS & a::
 ; BS & s::
 ; BS & d::

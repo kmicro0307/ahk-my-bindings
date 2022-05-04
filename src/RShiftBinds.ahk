@@ -2,7 +2,6 @@
 SendMode Input
 SetWorkingDir, %A_ScriptDir%
 
-
 <+f::
     Send, {RAlt}f
     return

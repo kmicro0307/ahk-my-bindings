@@ -2,10 +2,8 @@
 SendMode Input
 SetWorkingDir, %A_ScriptDir%
 
-
 RAlt & j::Return
 RAlt & k::Return
-
 RAlt & l::
     ; if (GetKeyState("Shift")){
     ;     if (isPressedKeyWithSemicolon()) {

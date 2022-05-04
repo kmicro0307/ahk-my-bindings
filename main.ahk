@@ -20,9 +20,9 @@ SetWorkingDir, %A_ScriptDir%
 
 ; ■ カーソルの位置移動をする
 #Include, %A_ScriptDir%\src\AltCursorPosManager.ahk
-#Include, %A_ScriptDir%\src\AltBindings.ahk
+#Include, %A_ScriptDir%\src\AltBinds.ahk
 #include, %A_ScriptDir%\src\AltMoveActiveWindow.ahk 
-#Include, %A_ScriptDir%\src\BSBindings.ahk
+#Include, %A_ScriptDir%\src\BSBinds.ahk
 ; #Include, %A_ScriptDir%\src\RShiftBindings.ahk
 
 ; -----------------------------------------
@@ -52,18 +52,18 @@ SetWorkingDir, %A_ScriptDir%
 #Include, %A_ScriptDir%\src\BSOneshot.ahk
 
 #Include, %A_ScriptDir%\src\TabOneshot.ahk
-#Include, %A_ScriptDir%\src\TabBindings.ahk
+#Include, %A_ScriptDir%\src\TabBinds.ahk
 
 ; ■ @のOne Shot Modifier実装 (ModForNumber and @)
 ; #Include, %A_ScriptDir%\at_main.ahk
 #IfWinNotActive ahk_class UnityWndClass
 
 ; ■ 変換 + キー -> テキスト操作のホットキー
-#Include, %A_ScriptDir%\src\Henkan.ahk
+#Include, %A_ScriptDir%\src\HenkanBinds.ahk
 
 ; ■ セミコロン + キー -> 記号キーを入力
 ; #If IME_GetConverting()!=2
-#Include, %A_ScriptDir%\src\Alphabets.ahk
+#Include, %A_ScriptDir%\src\MainBinds.ahk
 
 ; ■ 変換キーのOne Shot Modifier実装 (ModForText and Henkan)
 #Include, %A_ScriptDir%\src\HenkanOneshot.ahk
@@ -72,7 +72,7 @@ SetWorkingDir, %A_ScriptDir%
 ; 大文字記号文字の自動半角化コード
 ; ----------------------------------------
 
-#Include, %A_ScriptDir%\src\Symbols.ahk
+#Include, %A_ScriptDir%\src\SymbolBinds.ahk
 
 ; -----------------------------------------
 ; ソースコードのリロード

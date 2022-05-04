@@ -81,6 +81,7 @@ SetWorkingDir, %A_ScriptDir%
 ; aとfを使用して行頭，行末移動する(使用頻度高い )
 ~vk1C & a::Send, {NumpadHome}
 ~vk1C & f::Send,{NumpadEnd}
+
 ; 無変換での実装
 ;vkf3 & h::send, {blind}{left}
 ;vkF3 & j::Send, {Blind}{Down}
