@@ -2,34 +2,6 @@
 SendMode Input
 SetWorkingDir, %A_ScriptDir%
 
-; Tab & w::
-;     ActivateWindowByProcess("Obsidian")
-;     return
-
-; Tab & c::
-;     ActivateWindowByProcess("Chrome")
-;     return
-
-; Tab & t::
-;     ActivateWindowByProcess("terminal")
-;    return
-
-; Tab & e::
-;     ActivateWindowByProcess("Obsidian")
-;    return
-
-; Tab & s::
-;     ActivateWindowByProcess("intellij")
-;     return
-
-; Tab & v::
-;     ActivateWindowByProcess("vscode")
-;     return
-
-; Tab & f::
-;     ActivateWindowByProcess("firefox")
-;     return
-
 ^Tab::
 +Tab::
     Send, {Blind}{Tab}
