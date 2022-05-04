@@ -19,7 +19,7 @@ RAlt & l::
         Send, {Blind}{Alt}2
     } else if (isActiveProcess("tablacus")) {
         Send, {Blind}{Lalt}{.}
-    } else {    
+    } else { 
         Send, {Blind}{RAlt}l
     }
 Return
@@ -38,12 +38,10 @@ RAlt & h::
         Send, {Blind}{Alt}1
     } else if (isActiveProcess("tablacus")) {
         Send, {Blind}{Lalt}{,}
-    } else {    
+    } else { 
         Send, {Blind}{RAlt}h
-   }
+    }
 Return
-
-
 
 ; ~RAlt & a::
 ;     sleep, 10
@@ -64,14 +62,13 @@ Return
 ;     Return
 ; }
 
-
 ; MoveCursorToXY(X, Y)
-    ; MouseMove, cursor_pos_X, cursor_pos_Y,
+; MouseMove, cursor_pos_X, cursor_pos_Y,
 
 ; vk1d up::
 ; {
-                ; send, {vkf3}
-                ; return
+; send, {vkf3}
+; return
 ; }
 
 ; create_hotkey(hotkey, value)
@@ -91,7 +88,7 @@ Return
 ; }
 
 ~RAlt & e::
-        move_corsor_to_active_centor()
+    move_corsor_to_active_centor()
 Return
 
 ; !l::
@@ -178,20 +175,20 @@ Return
 ; RAlt & ,:: Send, !+h
 
 #k::
-Send, {Blind}{LWin}{Up}
+    Send, {Blind}{LWin}{Up}
 Return
 
 #j::
-Send, {Blind}{LWin}{Down}
+    Send, {Blind}{LWin}{Down}
 Return
 
 #h::
-Send, {Blind}{LWin}{Left}
+    Send, {Blind}{LWin}{Left}
 Return
 
 #l::
-;DllCall("LockWorkStation") 
-Send, {Blind}{Left}
+    ;DllCall("LockWorkStation") 
+    Send, {Blind}{Left}
 Return
 
 ; isSecondKey(){
@@ -212,14 +209,12 @@ Return
 ;Return 
 
 isDoubleKey() {
-    return (A_PriorHotKey = A_ThisHotKey and A_TimeSincePriorHotkey < 400)
+return (A_PriorHotKey = A_ThisHotKey and A_TimeSincePriorHotkey < 400)
 }
-
 
 ; ~RAlt::
 ;     tooltip, %A_PriorHotKey%
 ;     Return
-
 
 ~RAlt & w:: 
     Send {RAlt Down}{Tab}

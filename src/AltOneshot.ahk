@@ -7,8 +7,8 @@ RAlt::
     ; ToolTip, %KeyPressedStartTime% 
     if ( KeyPressedStartTime = 0 ){
         KeyPressedStartTime := A_TickCount
-    ; 不具合あったらDownTempも検討する
-    ;Send {Blind}{Ctrl Down}
+        ; 不具合あった場合DownTempも検討する
+        ;Send {Blind}{Ctrl Down}
     }
 Return
 ; ; $Altよりも~Altの方が動作安定する ?
@@ -23,22 +23,14 @@ Return
 ; }
 
 +RAlt Up::
-        ReleaseModifiers()
-    return
+    ReleaseModifiers()
+return
 
 <!RAlt Up::
-        ReleaseModifiers()
-    return
+    ReleaseModifiers()
+return
 
 RAlt Up::
-    ; altが暴発するので時間で実行しようと思ったが、
-    ; LALTの実行タイミングが離した瞬間なため、難しい
-    ; ALT暴発が常に付きまとうのは面倒なので２キーでの動作にする
-    ; 変な実装をしている
-    ; j -> altとかでも動く
-    ; とりあえず保留 問題はな誘う
-    ; TODO 以前のウィンドウを記憶できれば，なんとかなりそうだが...
-    ; UPをしていないこのタイミングならウィンドウの表示の有夢が取れるか
     global AltPriorHotkey := A_PriorHotkey
     global AltPriorkey := A_Priorkey
     Send, {AltUp}
@@ -52,7 +44,7 @@ RAlt Up::
     ;         %PressedTime%
     ;     )
     ; ToolTip, %PressedTime% 
-    If (KeyPressedUpTime- KeyPressedStartTime  < 200 and A_PriorHotKey == "RAlt" and A_PriorKey == "RAlt")
+    If (KeyPressedUpTime- KeyPressedStartTime < 200 and A_PriorHotKey == "RAlt" and A_PriorKey == "RAlt")
     { 
         Send, {Escape}
         IME_SET(0)

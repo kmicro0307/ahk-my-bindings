@@ -140,9 +140,9 @@ isPressedKeyWithSemicolon() {
 
     ; キー押しっぱなしを解除する
     ; これを入れると，変換の実行時間がのびて，PriorKeyに影響が出る
-    ; -> CtrlPriorkeyの出力が j -> $^jになるなど(ちゃんと確認してはいないが)
-    ; TODO: if文でいい感じにできるか
-    ; 処理が重いのはSendだと思うので，その実行前に入力状態とかで場合分けしてSendするものを決めれば，軽くなるのではないか
+    ; -> CtrlPriorkeyの出力が j -> $^jになるなど(要検証)
+    ; TODO: if文で制御できるか
+    ; 処理が重いのはSendが原因，実行前に入力状態で場合分けしてSendするものを決定すれば，軽くなる可能性がある
     ReleaseModifiers()
     {
         ; send {Ctrl down} 
