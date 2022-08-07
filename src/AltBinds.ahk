@@ -335,15 +335,15 @@ WindowPositionMoveFunc()
         ,"!+l":{x:-100, y:0,f:"x"}
         ,"vk1d & z":"l"}
 
-        global keymap_value_dict := {"~ralt & d":{x:1355, y:653}
-        ,"~ralt & s":{x:355, y:653}
-        ,"~ralt & f":{x:2444, y:588}
+        global keymap_value_dict := {"~ralt & d":{x:1355, y:1000}
+        ,"~ralt & s":{x:355, y:1000}
+        ,"~ralt & f":{x:2444, y:1500}
         ,"~ralt & v":{x:2530, y:1200}
         ,"~ralt & x":{x:389, y:1530}
         ,"~ralt & c":{x:1530, y:1500}
         ,"~ralt & a":{x:-540, y:394}
         ,"~ralt & z":{x:-540, y:1254}
-        ,"~ralt & g":{x:3200, y:500}}
+        ,"~ralt & g":{x:4000, y:1500}}
 
             if (GetKeyState("Shift")) 
             {
