@@ -1,3 +1,5 @@
+; タスクビューでのhjklキーバインドを行うスクリプト 
+
 Thread, Interrupt, -1
 ; Usehookを使うと動かない
 ~RAlt & j::Down

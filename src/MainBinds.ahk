@@ -1,9 +1,10 @@
-﻿; キーコンビネーションという名前だが，実装全般をとりあえず書く
+﻿; アルファベット+数字キーの実装
 #InstallKeybdHook
 
 $a::
 if isSecondColon(){
-    Send, {SC027}
+    ActivateWindowByProcess("terminal") 
+    move_corsor_to_active_centor()
     SemicolonPriorHotkey := "a"
     SemicolonPressedStartTime := 0
 } else if (isPressedKeyWithSemicolon()) {
@@ -87,12 +88,17 @@ if (isActiveProcess("tablacus") && isSecondKeyAfterCtrlJ() && CtrlPriorHotkey = 
     Return
 ;} else if (isSecondKeyAfterAltJ()){
 } else if (isSecondColon()){
-    ActivateWindowByProcess("tablacus") 
+    ActivateWindowByProcess("obsidian") 
+    move_corsor_to_active_centor()
     SemicolonPriorHotkey := "e"
     SemicolonPressedStartTime := 0
     Return
 }
-if (isPressedKeyWithSemicolon()) {
+if (isActiveProcess("Obsidian") && isSecondKeyAfterCtrlJ() && CtrlPriorHotkey= "$^j"){
+    Send, !^+e 
+    Send, !^+e
+    CtrlPriorHotkey := "!^+e"
+} else if (isPressedKeyWithSemicolon()) {
     Send, " 
 } else if (isPressedKeyWithAt()) {
     Send, 2
@@ -108,18 +114,19 @@ if (isPressedKeyWithSemicolon()) {
     Send, {Blind}^e
 }
 Return  
-
 ; tablacus explorer → 検索
+#MaxHotkeysPerInterval 200
 $f::
 ; Tooltip, %CtrlPriorHotkey%
 if (isActiveProcess("tablacus") && isSecondKeyAfterCtrlJ() && CtrlPriorHotkey = "$^j"){
     ; ToolTip, %CtrlPriorHotkey%
     ; ToolTip, %A_PriorKey%
     ; 以下書かないとctrl j が CtrlPriorHotkeyのままになってキー入力がされない
-    Send, ^+f
+    Send, !^+f
     CtrlPriorHotkey := "^+f"
     Return
 }
+
 ;if (isSecondKeyAfterAltJ()){
 ; tooltip,%A_PriorHotkey%
 if (isSecondColon()){
@@ -131,9 +138,8 @@ if (isSecondColon()){
 } else if (isActiveProcess("Obsidian") && isSecondKeyAfterCtrlJ() && CtrlPriorHotkey = "$^j"){
     ; ToolTip, %CtrlPriorHotkey%
     ; ToolTip, %A_PriorKey%
-    ; 以下書かないとctrl j が CtrlPriorHotkeyのままになってキー入力がされない
-    Send, ^+e
-    CtrlPriorHotkey := "^+e"
+    Send, !^+f
+    CtrlPriorHotkey := "!^+f"
     Return
 } else if (isPressedKeyWithAt()) {
     Send, 6
@@ -166,7 +172,12 @@ if (isActiveProcess("Obsidian") && isSecondKeyAfterCtrlJ() && CtrlPriorHotkey= "
     ; 以下書かないとctrl j が CtrlPriorHotkeyのままになってキー入力がされない
     CtrlPriorHotkey := "^g"
    Return
-}else if (isPressedKeyWithSemicolon()) {
+} else if (isSecondColon()) {
+    ActivateWindowByProcess("Chrome")
+    move_corsor_to_active_centor()
+    SemicolonPriorHotkey := "g"
+    SemicolonPressedStartTime := 0
+} else if (isPressedKeyWithSemicolon()) {
     ; Send, {asc 0037}
     Send, `%
 } else  {
@@ -175,7 +186,10 @@ if (isActiveProcess("Obsidian") && isSecondKeyAfterCtrlJ() && CtrlPriorHotkey= "
 Return  
 
 $h::
-if (isPressedKeyWithSemicolon()) {
+if (isActiveProcess("Obsidian") && isSecondKeyAfterCtrlJ() && CtrlPriorHotkey= "$^j"){
+    Send, !^+h
+    CtrlPriorHotkey := "!^+f"
+}else if (isPressedKeyWithSemicolon()) {
     Send, {SC027}
 } else  {
     Send, {Blind}h
@@ -223,7 +237,8 @@ if (isActiveProcess("Obsidian")  && isSecondKeyAfterCtrlJ() && A_PriorKey = "j")
     CtrlPriorHotkey := "j"
     Send, j
 } else if (isSecondColon()){
-    Send, {SC027}
+    ActivateWindowByProcess("intellij") 
+    move_corsor_to_active_centor()
 } else if (isPressedKeyWithSemicolon()) {
     Send, {blind}(
 } else  {
@@ -248,7 +263,10 @@ if (isPressedKeyWithSemicolon()) {
 Return  
 
 $m::
-if (isPressedKeyWithSemicolon()) {
+if (isActiveProcess("Obsidian") && isSecondKeyAfterCtrlJ() && CtrlPriorHotkey= "$^j"){
+    Send, !^+m
+    CtrlPriorHotkey := "!^+m"
+} else if  (isPressedKeyWithSemicolon()) {
     Send, ~
 } else  {
     Send, {Blind}m
@@ -296,6 +314,12 @@ if (isPressedKeyWithSemicolon()) {
 Return  
 
 $r::
+if (isSecondColon()){
+    ActivateWindowByProcess("vscode") 
+    move_corsor_to_active_centor()
+    SemicolonPriorHotkey := "r"
+    SemicolonPressedStartTime := 0
+}
 if (isPressedKeyWithSemicolon()) {
     Send, '
 } else if (isPressedKeyWithAt()) {
@@ -306,7 +330,10 @@ if (isPressedKeyWithSemicolon()) {
 Return  
 
 $s::
-if (isPressedKeyWithSemicolon()) {
+if (isSecondColon()){
+    ActivateWindowByProcess("chrome") 
+    move_corsor_to_active_centor()
+} else if (isPressedKeyWithSemicolon()) {
     Send, -
 } else if (isPressedKeyWithAt()) {
     Send, 4
@@ -363,7 +390,7 @@ $^u::
 if (isPressedKeyWithSemicolon()) {
 ; if (isSecondColon()){
     If (IME_GET() == 1){
-        IME_SET(0)  
+        IME_SET(0)
         SendSnippet(" -> ")
         ReleaseModifiers()
         IME_SET(1) 
@@ -373,7 +400,7 @@ if (isPressedKeyWithSemicolon()) {
         ReleaseModifiers()
     }
 } else  {
-    Send, {Blind}+u
+    Send, {Blind}^u
 }
 Return  
 
@@ -406,7 +433,12 @@ Return
 ; #IfWinNotActive ahk_class VRChat 
 
 $w::
-if (isPressedKeyWithSemicolon()) {
+if (isSecondColon()){
+    ActivateWindowByProcess("terminal") 
+    move_corsor_to_active_centor()
+    SemicolonPriorHotkey := "w"
+    SemicolonPressedStartTime := 0
+} else if (isPressedKeyWithSemicolon()) {
     Send, ?
 } else if (isPressedKeyWithAt()) {
 Send, 1
@@ -499,3 +531,4 @@ if (isPressedKeyWithSemicolon()) {
     Send, {Blind}4
 }
 Return  
+
