@@ -300,9 +300,9 @@ WindowPositionMoveFunc()
 
     keymap_resize_XY := {"~RAlt & d":{"X":1020,"Y":1080 -40}
 ,"~RAlt & s":{"X":960,"Y": 1080 -40}
-,"~RAlt & f":{"X":960,"Y": 1080 - 40}
+,"~RAlt & f":{"X":monitor.width/2,"Y":monitor.height/2}
 ,"~RAlt & g":{"X":940,"Y": 1080 - 40}
-,"~RAlt & v":{"X":monitor.width,"Y":monitor.height/2}
+,"~RAlt & v":{"X":monitor.width/2,"Y":monitor.height/2}
 ,"~RAlt & x":{"X":monitor.width/2,"Y": monitor.height -30}
 ,"~RAlt & c":{"X":monitor.width/2,"Y":monitor.height -30}
 ,"~RAlt & a":{"X":monitor.width,"Y":monitor.height/2}
@@ -335,14 +335,14 @@ WindowPositionMoveFunc()
         ,"!+l":{x:-100, y:0,f:"x"}
         ,"vk1d & z":"l"}
 
-        global keymap_value_dict := {"~ralt & d":{x:1355, y:1000}
-        ,"~ralt & s":{x:355, y:1000}
-        ,"~ralt & f":{x:2444, y:1500}
-        ,"~ralt & v":{x:2530, y:1200}
+        global keymap_value_dict := {"~ralt & d":{x:1500, y:490}
+        ,"~ralt & s":{x:455, y:490}
+        ,"~ralt & f":{x:2300, y:600}
+        ,"~ralt & v":{x:2300, y:1380}
         ,"~ralt & x":{x:389, y:1530}
         ,"~ralt & c":{x:1530, y:1500}
         ,"~ralt & a":{x:-540, y:394}
-        ,"~ralt & z":{x:-540, y:1254}
+        ,"~ralt & z":{x:-540, y:600}
         ,"~ralt & g":{x:4000, y:1500}}
 
             if (GetKeyState("Shift")) 
