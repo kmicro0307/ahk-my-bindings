@@ -21,6 +21,7 @@ SetWorkingDir, %A_ScriptDir%
 ; ■ カーソルの位置移動をする
 #Include, %A_ScriptDir%\src\AltBinds.ahk
 #Include, %A_ScriptDir%\src\BSBinds.ahk
+#Include, %A_ScriptDir%\src\WindowBinds.ahk
 ; #Include, %A_ScriptDir%\src\RShiftBindings.ahk
 
 ; -----------------------------------------
