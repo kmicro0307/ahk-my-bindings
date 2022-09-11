@@ -290,7 +290,7 @@ WindowPositionMoveFunc()
 
     keymap_position_XY := {"~RAlt & d":{"X":900,"Y":0}
 ,"~RAlt & s":{"X":0,"Y":0}
-,"~RAlt & f":{"X":monitor.left,"Y":0}
+,"~RAlt & f":{"X":monitor.left,"Y":10000}
 ,"~RAlt & g":{"X":monitor.left+940,"Y":0}
 ,"~RAlt & v":{"X":monitor.left,"Y":monitor.height/2}
 ,"~RAlt & x":{"X":0,"Y":monitor.bottom}
@@ -325,6 +325,7 @@ WindowPositionMoveFunc()
 ~RAlt & x::
 ~RAlt & c::
 ~RAlt & v::
+~RAlt & b::
     {
         global keymap_move_len := {"!h":{x:100, y:0, f:"w"}
         ,"!+h":{x:-100, y:0, f:"w"}
@@ -375,7 +376,10 @@ WindowPositionMoveFunc()
                 ; ANCESTOR_HWND := DllCall("GetAncestor", "UInt", NEXT_HWND, "UInt", GA_ROOT:= 2)
                 ; tooltip, %ANCESTOR_HWND%
 
-                MouseMove, x, y
+                ; move_corsor_to_active_centor()
+                if not isActiveProcess("vrchat"){
+                    MouseMove, x, y
+                }
             }
         Return
     }
