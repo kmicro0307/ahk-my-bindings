@@ -45,6 +45,8 @@ SetWorkingDir, %A_ScriptDir%
 Return
 
 *F14::
+    ; IMEの確定用に、F23を押下(F14は押下されないため、また、無限ループを避けるためにF14ではなくF23を押す)
+    Send, {F23}
     if (LAltKeyPressedStartTime = ""){
         LAltKeyPressedStartTime := 0
     }
@@ -55,7 +57,7 @@ Return
 Return
 
 *F14 Up::
-    Send, {F24}
+    Send, {F23 Up}
     Send, {LAlt Up}
     global AltPriorHotkey := A_PriorHotkey
     global AltPriorkey := A_Priorkey
