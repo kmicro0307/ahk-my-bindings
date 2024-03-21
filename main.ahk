@@ -62,6 +62,8 @@ SetWorkingDir, %A_ScriptDir%
     ; ■ 変換 + キー -> テキスト操作のバインド
     #Include, %A_ScriptDir%\src\HenkanBinds.ahk
 
+    #Include, %A_ScriptDir%\src\ColonBinds.ahk
+
     ; ■ セミコロン + キー -> 記号キーを入力
     ; #If IME_GetConverting()!=2
     #Include, %A_ScriptDir%\src\MainBinds.ahk
