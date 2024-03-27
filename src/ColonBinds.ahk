@@ -7,6 +7,7 @@ SetWorkingDir, %A_ScriptDir%
 ; 主にテキスト操作に使用するキーバインドを設定する
 ; -----------------------------------------
 
+
 ; ■ hjklでvimバインドっぽく移動する
 SC028 & w::
     ActivateWindowByProcess("terminal") 

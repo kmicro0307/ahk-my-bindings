@@ -42,6 +42,7 @@ SetWorkingDir, %A_ScriptDir%
 ; ■ CtrlのOne Shot Modifier実装 (Ctrl and Muhenkan)
 #Include, %A_ScriptDir%\src\CtrlOneshot.ahk
 ; #Include, %A_ScriptDir%\henkan_ctrl_main_v2.ahk
+#Include, %A_ScriptDir%\src\ColonOneshot.ahk
 
 ; ■ セミコロンのOne Shot Modifier実装 (ModForSymbol and Semicolon)
 #Include, %A_ScriptDir%\src\SemiColonOneshot.ahk
