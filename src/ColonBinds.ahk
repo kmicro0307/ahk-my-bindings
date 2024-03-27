@@ -33,3 +33,8 @@ SC028 & v::
   ActivateWindowByProcess("vscode") 
   move_corsor_to_active_centor()
   Return
+
+SC028 & t::
+  Clipboard = %A_Year%-%A_Mon%-%A_MDay%
+  Send, ^v
+  Return
